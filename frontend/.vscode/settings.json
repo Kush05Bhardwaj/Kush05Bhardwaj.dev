@@ -1,0 +1,9 @@
+{
+  "typescript.preferences.includePackageJsonAutoImports": "on",
+  "typescript.suggest.autoImports": true,
+  "typescript.workspaceSymbols.scope": "currentProject",
+  "files.exclude": {
+    "node_modules": true,
+    ".next": true
+  }
+}
