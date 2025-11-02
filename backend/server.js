@@ -39,13 +39,34 @@ if (process.env.NODE_ENV === 'development') {
 // Static files
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-// Database connection
+// Database connection with better error handling
 mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
+  serverSelectionTimeoutMS: 5000,
+  socketTimeoutMS: 45000,
 })
-.then(() => console.log('MongoDB connected successfully'))
-.catch(err => console.error('MongoDB connection error:', err));
+.then(() => {
+  console.log('MongoDB connected successfully');
+  // Disable buffering
+  mongoose.set('bufferCommands', false);
+})
+.catch(err => {
+  console.error('MongoDB connection error:', err);
+  console.error('Please check your MONGODB_URI in .env file');
+  process.exit(1);
+});
+
+// Handle MongoDB connection events
+mongoose.connection.on('error', err => {
+  console.error('MongoDB connection error:', err);
+});
+
+mongoose.connection.on('disconnected', () => {
+  console.warn('MongoDB disconnected. Attempting to reconnect...');
+});
+
+mongoose.connection.on('reconnected', () => {
+  console.log('MongoDB reconnected successfully');
+});
 
 // Routes
 app.use('/api/auth', require('./routes/auth'));
@@ -55,6 +76,7 @@ app.use('/api/experience', require('./routes/experience'));
 app.use('/api/testimonials', require('./routes/testimonials'));
 app.use('/api/skills', require('./routes/skills'));
 app.use('/api/upload', require('./routes/upload'));
+app.use('/api/contact', require('./routes/contact'));
 
 // Health check
 app.get('/api/health', (req, res) => {

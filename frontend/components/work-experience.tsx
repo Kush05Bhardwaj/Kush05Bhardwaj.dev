@@ -1,8 +1,13 @@
+"use client"
+
 import { Card, CardContent } from "@/components/ui/card"
 import { log } from "console"
 import { Briefcase } from "lucide-react"
+import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 
 export default function WorkExperience() {
+  const { ref, isVisible } = useScrollReveal()
+  
   const experiences = [
     {
       id: 1,
@@ -33,7 +38,7 @@ export default function WorkExperience() {
 
   return (
     <section id="experience" className="py-16">
-      <div className="flex items-center justify-center gap-2 mb-12 animate-fade-in-up">
+      <div ref={ref} className={`flex items-center justify-center gap-2 mb-12 reveal-on-scroll ${isVisible ? 'is-revealed' : ''}`}>
         <Briefcase className="text-[#7b3fe4]" />
         <h2 className="text-3xl font-bold">
           My prior <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7b3fe4] to-[#b799ff]">Work Experience</span>
@@ -44,7 +49,7 @@ export default function WorkExperience() {
         {experiences.map((exp, index) => (
           <Card
             key={exp.id}
-            className="glass-card hover-lift rounded-lg"
+            className="glass-card rounded-lg group transition-all duration-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#7b3fe4]/20"
             style={{ animationDelay: `${0.1 + index * 0.1}s` }}
           >
             <CardContent className="p-6">
@@ -53,9 +58,9 @@ export default function WorkExperience() {
                   <img
                     src={exp.logo}
                     alt={`${exp.company} logo`}
-                    className="w-8 h-8 rounded-full"
+                    className="w-8 h-8 rounded-full transition-transform duration-300 group-hover:scale-110"
                   />
-                  <h3 className="font-medium text-[#e9e9f5]">{exp.company}</h3>
+                  <h3 className="font-medium text-[#e9e9f5] group-hover:text-[#b799ff] transition-colors duration-300">{exp.company}</h3>
                 </div>
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7b3fe4] to-[#b799ff]">{exp.role}</span>
               </div>

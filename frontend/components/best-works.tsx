@@ -1,10 +1,15 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { ArrowRight, Code } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 
 export default function BestWorks() {
+  const { ref, isVisible } = useScrollReveal()
+  
   const projects = [
     {
       id: 1,
@@ -49,7 +54,7 @@ export default function BestWorks() {
 
   return (
     <section id="projects" className="py-16">
-      <div className="flex items-center justify-center gap-2 mb-12 animate-fade-in-up">
+      <div ref={ref} className={`flex items-center justify-center gap-2 mb-12 reveal-on-scroll ${isVisible ? 'is-revealed' : ''}`}>
         <Code className="text-[#7b3fe4]" />
         <h2 className="text-3xl font-bold">
           Some of my <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7b3fe4] to-[#b799ff]">Best Works</span>
@@ -60,22 +65,22 @@ export default function BestWorks() {
         {projects.map((project, index) => (
           <Card
             key={project.id}
-            className="glass-card overflow-hidden hover-lift rounded-lg"
+            className="glass-card overflow-hidden group cursor-pointer transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#7b3fe4]/20"
             style={{ animationDelay: `${0.1 + index * 0.1}s` }}
           >
-            <CardContent className="p-0">
+            <CardContent className="p-0 overflow-hidden">
               <Image
                 src={project.image || "/placeholder.svg"}
                 alt={project.title}
                 width={400}
                 height={200}
-                className="w-full h-48 object-cover"
+                className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
               />
             </CardContent>
             <CardFooter className="flex flex-col items-start p-6">
               <div className="flex justify-between w-full mb-4">
                 <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7b3fe4] to-[#b799ff]">{project.title}</h3>
-                <Link href={project.link} className="text-[#a5a5c8] hover:text-[#7b3fe4] transition-colors">
+                <Link href={project.link} className="text-[#a5a5c8] hover:text-[#7b3fe4] transition-all duration-300 hover:translate-x-1">
                   {project.description} <ArrowRight className="inline h-4 w-4" />
                 </Link>
               </div>
@@ -83,7 +88,7 @@ export default function BestWorks() {
                 {project.technologies.map((tech) => (
                   <div 
                     key={tech} 
-                    className="px-3 py-1 rounded-full text-xs font-medium bg-[#1e1b2f] text-[#b799ff] border border-[#7b3fe4]/20"
+                    className="px-3 py-1 rounded-full text-xs font-medium bg-[#1e1b2f] text-[#b799ff] border border-[#7b3fe4]/20 transition-all duration-300 hover:border-[#7b3fe4]/50 hover:bg-[#7b3fe4]/10"
                   >
                     {tech === "js" && "JavaScript"}
                     {tech === "react" && "React"}
@@ -108,7 +113,7 @@ export default function BestWorks() {
       </div>
 
       <div className="flex justify-center mt-12">
-        <Button asChild className="bg-[#7b3fe4] hover:bg-[#6b2fd4] text-white shadow-lg shadow-[#7b3fe4]/20 hover:shadow-[#7b3fe4]/30">
+        <Button asChild className="bg-[#7b3fe4] hover:bg-[#6b2fd4] text-white shadow-lg shadow-[#7b3fe4]/20 hover:shadow-[#7b3fe4]/30 transition-all duration-300 hover:scale-105">
           <Link href="https://github.com/Kush05Bhardwaj?tab=repositories" target="_blank" rel="noopener noreferrer">
             View All Projects <ArrowRight className="ml-2 h-4 w-4" />
           </Link>

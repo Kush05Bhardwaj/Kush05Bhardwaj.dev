@@ -1,7 +1,12 @@
+"use client"
+
 import { Laptop } from "lucide-react"
 import { Progress } from "@/components/ui/progress"
+import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 
 export default function TechStack() {
+  const { ref, isVisible } = useScrollReveal()
+  
   const technologies = [
     { name: "HTML", percentage: 90 },
     { name: "CSS", percentage: 75 },
@@ -19,7 +24,7 @@ export default function TechStack() {
 
   return (
     <section id="skills" className="py-16">
-      <div className="flex items-center justify-center gap-2 mb-12 animate-fade-in-up">
+      <div ref={ref} className={`flex items-center justify-center gap-2 mb-12 reveal-on-scroll ${isVisible ? 'is-revealed' : ''}`}>
         <Laptop className="text-[#7b3fe4]" />
         <h2 className="text-3xl font-bold">
           This is my <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7b3fe4] to-[#b799ff]">Tech Stack</span>
@@ -30,16 +35,16 @@ export default function TechStack() {
         {technologies.map((tech, index) => (
           <div
             key={tech.name}
-            className="glass-card p-6 hover-lift rounded-lg"
+            className="glass-card p-6 rounded-lg group transition-all duration-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#7b3fe4]/20"
             style={{ animationDelay: `${0.15 + index * 0.05}s` }}
           >
             <div className="flex justify-between mb-3">
-              <span className="font-medium text-[#e9e9f5]">{tech.name}</span>
+              <span className="font-medium text-[#e9e9f5] group-hover:text-[#b799ff] transition-colors duration-300">{tech.name}</span>
               <span className="text-sm text-[#a5a5c8]">{tech.percentage}%</span>
             </div>
             <div className="w-full h-2 bg-[#1e1b2f] rounded-full overflow-hidden">
               <div 
-                className="h-full bg-gradient-to-r from-[#7b3fe4] to-[#b799ff] rounded-full transition-all duration-500"
+                className="h-full bg-gradient-to-r from-[#7b3fe4] to-[#b799ff] rounded-full transition-all duration-700 group-hover:shadow-lg group-hover:shadow-[#7b3fe4]/50"
                 style={{ width: `${tech.percentage}%` }}
               />
             </div>

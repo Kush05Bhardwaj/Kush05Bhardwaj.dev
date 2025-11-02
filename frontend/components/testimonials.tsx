@@ -5,8 +5,11 @@ import { Card, CardContent } from "@/components/ui/card"
 import { AvatarWithRings, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { MessageSquare, ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 
 export default function Testimonials() {
+  const { ref, isVisible } = useScrollReveal()
+  
   const testimonials = [
     {
       id: 1,
@@ -37,7 +40,7 @@ export default function Testimonials() {
 
   return (
     <section id="testimonials" className="py-16">
-      <div className="flex items-center justify-center gap-2 mb-12 animate-fade-in-up">
+      <div ref={ref} className={`flex items-center justify-center gap-2 mb-12 reveal-on-scroll ${isVisible ? 'is-revealed' : ''}`}>
         <MessageSquare className="text-[#7b3fe4]" />
         <h2 className="text-3xl font-bold">
           Check out these <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7b3fe4] to-[#b799ff]">Testimonials</span>
@@ -52,13 +55,13 @@ export default function Testimonials() {
           >
             {testimonials.map((testimonial) => (
               <div key={testimonial.id} className="w-full flex-shrink-0 px-4">
-                <Card className="glass-card mx-auto max-w-2xl hover-lift rounded-lg">
+                <Card className="glass-card mx-auto max-w-2xl rounded-lg group transition-all duration-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#7b3fe4]/20">
                   <CardContent className="p-8">
                     <div className="flex items-center gap-3 mb-6">
                       <AvatarWithRings 
                         showRings={true} 
                         ringColors={["border-[#7b3fe4]/50", "border-[#b799ff]/30", "border-[#7b3fe4]/20"]}
-                        className="border-2 border-[#7b3fe4]/50"
+                        className="border-2 border-[#7b3fe4]/50 transition-transform duration-300 group-hover:scale-110"
                       >
                         <AvatarImage src="/placeholder.svg?height=40&width=40" alt={testimonial.name} />
                         <AvatarFallback className="bg-gradient-to-r from-[#7b3fe4] to-[#b799ff] text-white">
@@ -82,7 +85,7 @@ export default function Testimonials() {
           {testimonials.map((_, index) => (
             <button
               key={index}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              className={`w-3 h-3 rounded-full transition-all duration-300 hover:scale-110 ${
                 index === currentIndex 
                 ? "bg-gradient-to-r from-[#7b3fe4] to-[#b799ff] scale-125" 
                 : "bg-[#1e1b2f] hover:bg-[#7b3fe4]/30"
@@ -95,7 +98,7 @@ export default function Testimonials() {
         <Button
           variant="outline"
           size="icon"
-          className="glass-card absolute left-0 top-1/2 -translate-y-1/2 text-[#e9e9f5] hover:text-[#7b3fe4] hover:border-[#7b3fe4]/50 transition-all duration-300"
+          className="glass-card absolute left-0 top-1/2 -translate-y-1/2 text-[#e9e9f5] hover:text-[#7b3fe4] hover:border-[#7b3fe4]/50 transition-all duration-300 hover:scale-110"
           onClick={prevSlide}
         >
           <ChevronLeft className="h-4 w-4" />
@@ -104,7 +107,7 @@ export default function Testimonials() {
         <Button
           variant="outline"
           size="icon"
-          className="glass-card absolute right-0 top-1/2 -translate-y-1/2 text-[#e9e9f5] hover:text-[#7b3fe4] hover:border-[#7b3fe4]/50 transition-all duration-300"
+          className="glass-card absolute right-0 top-1/2 -translate-y-1/2 text-[#e9e9f5] hover:text-[#7b3fe4] hover:border-[#7b3fe4]/50 transition-all duration-300 hover:scale-110"
           onClick={nextSlide}
         >
           <ChevronRight className="h-4 w-4" />

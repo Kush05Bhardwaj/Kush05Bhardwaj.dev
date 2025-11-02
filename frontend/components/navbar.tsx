@@ -39,10 +39,10 @@ export default function Navbar() {
 
   return (
     <nav className={cn(
-      "sticky top-0 z-50 transition-all duration-300",
+      "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
       scrolled 
-        ? "backdrop-blur-md bg-[#0a0612]/90 border-b border-[#1e1b2f] py-3" 
-        : "backdrop-blur-sm bg-[#0a0612]/70 py-4"
+        ? "backdrop-blur-md bg-[#0a0612]/95 border-b border-[#1e1b2f] shadow-lg py-3" 
+        : "backdrop-blur-sm bg-[#0a0612]/80 py-4"
     )}>
       <div className="container mx-auto flex items-center justify-between px-4">
         <Link 
