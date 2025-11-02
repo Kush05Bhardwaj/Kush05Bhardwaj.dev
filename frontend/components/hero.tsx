@@ -71,8 +71,8 @@ export default function Hero() {
 
           {/* Description */}
           <p className="text-lg text-[#a5a5c8] max-w-xl leading-relaxed">
-            Building web applications with modern technologies. 
-            Learning and growing in the MERN stack ecosystem.
+            Building cool stuff with AI, Python, and Web Tech.
+            Always learning, always experimenting.
           </p>
 
           {/* CTA Buttons */}
