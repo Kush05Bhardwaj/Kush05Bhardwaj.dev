@@ -49,7 +49,7 @@ export default function Navbar() {
           href="#home" 
           className="font-mono text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#7b3fe4] to-[#b799ff]"
         >
-          kush.dev
+          Kush05Bhardwaj
         </Link>
 
         {/* Mobile menu button */}

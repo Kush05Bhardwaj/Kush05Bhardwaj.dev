@@ -1,3 +1,7 @@
+// NOTE: This file is no longer used - backend has been disconnected
+// The frontend now uses mock data instead of API calls
+
+/*
 import axios from 'axios';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
@@ -11,3 +15,6 @@ const api = axios.create({
 });
 
 export default api;
+*/
+
+export default {};

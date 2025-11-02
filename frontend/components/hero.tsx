@@ -16,8 +16,8 @@ export default function Hero() {
   const { ref: rightRef, isVisible: rightVisible } = useScrollReveal()
 
   const roles = [
+    "Aspiring AI-Software Developer",
     "MERN Stack Developer",
-    "Problem Solver",
     "Tech Enthusiast"
   ]
 

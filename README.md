@@ -1,5 +1,7 @@
 # Portfolio Full-Stack Application
 
+> **Note**: The frontend is currently running in **static mode** and is disconnected from the backend. See [frontend/STATIC_MODE.md](frontend/STATIC_MODE.md) for details.
+
 A modern, full-stack portfolio application with separate frontend (Next.js) and backend (Express.js) with admin panel for content management.
 
 ## 🚀 Features

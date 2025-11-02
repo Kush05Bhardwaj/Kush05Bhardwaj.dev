@@ -1,74 +1,49 @@
 "use client"
 
-import { useState, useEffect } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Briefcase } from "lucide-react"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
-import { experienceAPI } from "@/lib/api"
+
+// Static experience data
+const experiences = [
+  {
+    id: "1",
+    company: "KR Mangalam University",
+    position: "Student",
+    logo: "/kr.png",
+    startDate: "2024-08-01",
+    endDate: undefined,
+    current: true,
+    description: "I am a student at KR Mangalam University. I am pursuing B.Tech in Computer Science.",
+  },
+  {
+    id: "2",
+    company: "Cognifyz Technologies",
+    position: "Web Developer Intern",
+    logo: "/cognifyz-1.png",
+    startDate: "2025-05-01",
+    endDate: undefined,
+    current: true,
+    description: "I worked as a Web Dev Intern at Cognifyz Technologies.",
+  },
+  {
+    id: "3",
+    company: "Fiverr",
+    position: "Freelancer",
+    logo: "/fiverr.png",
+    startDate: "2024-04-01",
+    endDate: undefined,
+    current: true,
+    description: "I am a freelancer on Fiverr. I provide services like web development and web design.",
+  },
+]
 
 export default function WorkExperience() {
   const { ref, isVisible } = useScrollReveal()
-  const [experiences, setExperiences] = useState<any[]>([])
-  const [isLoading, setIsLoading] = useState(true)
-
-  useEffect(() => {
-    fetchExperiences()
-  }, [])
-
-  const fetchExperiences = async () => {
-    try {
-      const data = await experienceAPI.getAll()
-      setExperiences(data)
-    } catch (error) {
-      console.error('Error fetching experiences:', error)
-      // Fallback data in case API fails
-      setExperiences([
-        {
-          _id: "1",
-          company: "KR Mangalam University",
-          position: "Student",
-          logo: "/kr.png",
-          startDate: "2024-08-01",
-          current: true,
-          description: "I am a student at KR Mangalam University. I am pursuing B.Tech in Computer Science.",
-        },
-        {
-          _id: "2",
-          company: "Cognifyz Technologies",
-          position: "Web Developer Intern",
-          logo: "/cognifyz-1.png",
-          startDate: "2025-05-01",
-          current: true,
-          description: "I worked as a Web Dev Intern at Cognifyz Technologies.",
-        },
-        {
-          _id: "3",
-          company: "Fiverr",
-          position: "Freelancer",
-          logo: "/fiverr.png",
-          startDate: "2024-04-01",
-          current: true,
-          description: "I am a freelancer on Fiverr. I provide services like web development and web design.",
-        },
-      ])
-    } finally {
-      setIsLoading(false)
-    }
-  }
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString)
     return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
-  }
-
-  if (isLoading) {
-    return (
-      <section id="experience" className="py-16">
-        <div className="flex items-center justify-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#7b3fe4]"></div>
-        </div>
-      </section>
-    )
   }
 
   return (
@@ -83,7 +58,7 @@ export default function WorkExperience() {
       <div className="space-y-6">
         {experiences.map((exp, index) => (
           <Card
-            key={exp._id}
+            key={exp.id}
             className="glass-card rounded-lg group transition-all duration-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#7b3fe4]/20"
             style={{ animationDelay: `${0.1 + index * 0.1}s` }}
           >
@@ -101,7 +76,7 @@ export default function WorkExperience() {
               </div>
               <p className="mt-4 text-[#e9e9f5]">{exp.description}</p>
               <p className="mt-2 text-sm text-[#a5a5c8]">
-                {formatDate(exp.startDate)} - {exp.current ? "Present" : formatDate(exp.endDate)}
+                {formatDate(exp.startDate)} - {exp.current ? "Present" : (exp.endDate ? formatDate(exp.endDate) : "N/A")}
               </p>
             </CardContent>
           </Card>

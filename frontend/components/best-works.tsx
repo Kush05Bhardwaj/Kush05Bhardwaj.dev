@@ -1,78 +1,50 @@
 "use client"
 
-import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { ArrowRight, Code } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
-import { projectsAPI } from "@/lib/api"
+
+// Static projects data
+const projects = [
+  {
+    id: "1",
+    title: "Personal Portfolio",
+    shortDescription: "Portfolio Website",
+    images: ["/cv.png"],
+    liveUrl: "#",
+    technologies: ["js", "react", "ts", "tailwindcss"],
+  },
+  {
+    id: "2",
+    title: "ECL Parcel",
+    shortDescription: "Logistics Website",
+    images: ["/ecl.png"],
+    liveUrl: "https://www.eclparcel.in/",
+    technologies: ["js", "react", "nextjs", "tailwindcss"],
+  },
+  {
+    id: "3",
+    title: "Nexus",
+    shortDescription: "Nexus - Personal AI Assistant with Local LLM Integration",
+    images: ["/Nexus.jpg"],
+    githubUrl: "https://github.com/Kush05Bhardwaj/Nexus-Personal-AI-Assistant-with-Local-LLM-Integration",
+    technologies: ["python", "ai", "ml"],
+  },
+  {
+    id: "4",
+    title: "Artistry",
+    shortDescription: "Artistry AI Redesign",
+    images: ["/Artistry.jpg"],
+    liveUrl: "#",
+    technologies: ["js", "react", "ts", "tailwindcss", "python", "LLM"],
+  },
+]
 
 export default function BestWorks() {
   const { ref, isVisible } = useScrollReveal()
-  const [projects, setProjects] = useState<any[]>([])
-  const [isLoading, setIsLoading] = useState(true)
-
-  useEffect(() => {
-    fetchProjects()
-  }, [])
-
-  const fetchProjects = async () => {
-    try {
-      const data = await projectsAPI.getAll({ featured: true, limit: 4 })
-      setProjects(data)
-    } catch (error) {
-      console.error('Error fetching projects:', error)
-      // Fallback data in case API fails
-      setProjects([
-        {
-          _id: "1",
-          title: "Personal Portfolio",
-          shortDescription: "Portfolio Website",
-          images: ["/cv.png"],
-          liveUrl: "#",
-          technologies: ["js", "react", "ts", "tailwindcss"],
-        },
-        {
-          _id: "2",
-          title: "ECL Parcel",
-          shortDescription: "Logistics Website",
-          images: ["/ecl.png"],
-          liveUrl: "https://www.eclparcel.in/",
-          technologies: ["js", "react", "nextjs", "tailwindcss"],
-        },
-        {
-          _id: "3",
-          title: "Nexus",
-          shortDescription: "Nexus - Personal AI Assistant with Local LLM Integration",
-          images: ["/Nexus.jpg"],
-          githubUrl: "https://github.com/Kush05Bhardwaj/Nexus-Personal-AI-Assistant-with-Local-LLM-Integration",
-          technologies: ["python", "ai", "ml"],
-        },
-        {
-          _id: "4",
-          title: "Artistry",
-          shortDescription: "Artistry AI Redesign",
-          images: ["/Artistry.jpg"],
-          liveUrl: "#",
-          technologies: ["js", "react", "ts", "tailwindcss", "python", "LLM"],
-        },
-      ])
-    } finally {
-      setIsLoading(false)
-    }
-  }
-
-  if (isLoading) {
-    return (
-      <section id="projects" className="py-16">
-        <div className="flex items-center justify-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#7b3fe4]"></div>
-        </div>
-      </section>
-    )
-  }
 
   return (
     <section id="projects" className="py-16">
@@ -90,7 +62,7 @@ export default function BestWorks() {
           
           return (
             <Card
-              key={project._id}
+              key={project.id}
               className="glass-card overflow-hidden group cursor-pointer transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#7b3fe4]/20"
               style={{ animationDelay: `${0.1 + index * 0.1}s` }}
             >
@@ -112,7 +84,7 @@ export default function BestWorks() {
                     rel={isExternal ? "noopener noreferrer" : undefined}
                     className="text-[#a5a5c8] hover:text-[#7b3fe4] transition-all duration-300 hover:translate-x-1"
                   >
-                    {project.shortDescription || project.description} <ArrowRight className="inline h-4 w-4" />
+                    {project.shortDescription} <ArrowRight className="inline h-4 w-4" />
                   </Link>
                 </div>
                 <div className="flex flex-wrap gap-2 mt-2">

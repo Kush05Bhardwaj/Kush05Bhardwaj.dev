@@ -42,33 +42,20 @@ export default function Contact() {
     setSubmitStatus({ type: null, message: '' })
     
     try {
-      const response = await fetch('http://localhost:5000/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
+      // Simulate form submission delay
+      await new Promise(resolve => setTimeout(resolve, 1000))
+      
+      // Mock successful submission
+      setSubmitStatus({ 
+        type: 'success', 
+        message: 'Thank you for your message! This is a demo mode - no actual email was sent.' 
       })
-
-      const data = await response.json()
-
-      if (data.success) {
-        setSubmitStatus({ 
-          type: 'success', 
-          message: data.message || 'Thank you for your message! We will get back to you soon.' 
-        })
-        setFormData({ name: "", email: "", subject: "", message: "" })
-      } else {
-        setSubmitStatus({ 
-          type: 'error', 
-          message: data.message || 'Something went wrong. Please try again.' 
-        })
-      }
+      setFormData({ name: "", email: "", subject: "", message: "" })
     } catch (error) {
       console.error('Error submitting form:', error)
       setSubmitStatus({ 
         type: 'error', 
-        message: 'Failed to send message. Please try again or contact us directly via email.' 
+        message: 'Something went wrong. Please try again.' 
       })
     } finally {
       setIsSubmitting(false)
