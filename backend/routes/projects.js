@@ -1,6 +1,5 @@
 const express = require('express');
 const Project = require('../models/Project');
-const { adminAuth } = require('../middleware/auth');
 
 const router = express.Router();
 
@@ -51,7 +50,7 @@ router.get('/:id', async (req, res) => {
 // @desc    Create project
 // @route   POST /api/projects
 // @access  Private (Admin)
-router.post('/', adminAuth, async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const project = await Project.create(req.body);
     res.status(201).json(project);
@@ -63,7 +62,7 @@ router.post('/', adminAuth, async (req, res) => {
 // @desc    Update project
 // @route   PUT /api/projects/:id
 // @access  Private (Admin)
-router.put('/:id', adminAuth, async (req, res) => {
+router.put('/:id', async (req, res) => {
   try {
     const project = await Project.findByIdAndUpdate(
       req.params.id,
@@ -84,7 +83,7 @@ router.put('/:id', adminAuth, async (req, res) => {
 // @desc    Delete project
 // @route   DELETE /api/projects/:id
 // @access  Private (Admin)
-router.delete('/:id', adminAuth, async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
     const project = await Project.findByIdAndUpdate(
       req.params.id,

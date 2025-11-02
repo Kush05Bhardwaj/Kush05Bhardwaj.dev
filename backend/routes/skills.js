@@ -1,6 +1,5 @@
 const express = require('express');
 const Skill = require('../models/Skill');
-const { adminAuth } = require('../middleware/auth');
 
 const router = express.Router();
 
@@ -48,7 +47,7 @@ router.get('/grouped', async (req, res) => {
 // @desc    Create skill
 // @route   POST /api/skills
 // @access  Private (Admin)
-router.post('/', adminAuth, async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const skill = await Skill.create(req.body);
     res.status(201).json(skill);
@@ -60,7 +59,7 @@ router.post('/', adminAuth, async (req, res) => {
 // @desc    Update skill
 // @route   PUT /api/skills/:id
 // @access  Private (Admin)
-router.put('/:id', adminAuth, async (req, res) => {
+router.put('/:id', async (req, res) => {
   try {
     const skill = await Skill.findByIdAndUpdate(
       req.params.id,
@@ -81,7 +80,7 @@ router.put('/:id', adminAuth, async (req, res) => {
 // @desc    Delete skill
 // @route   DELETE /api/skills/:id
 // @access  Private (Admin)
-router.delete('/:id', adminAuth, async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
     const skill = await Skill.findByIdAndUpdate(
       req.params.id,

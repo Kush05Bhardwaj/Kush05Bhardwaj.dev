@@ -1,33 +1,5 @@
 import api from './client';
 
-export interface LoginData {
-  email: string;
-  password: string;
-}
-
-export interface AuthResponse {
-  success: boolean;
-  token: string;
-  user: {
-    id: string;
-    email: string;
-    role: string;
-  };
-}
-
-// Auth API
-export const authAPI = {
-  login: async (data: LoginData): Promise<AuthResponse> => {
-    const response = await api.post('/auth/login', data);
-    return response.data;
-  },
-
-  register: async (data: LoginData & { role?: string }): Promise<AuthResponse> => {
-    const response = await api.post('/auth/register', data);
-    return response.data;
-  },
-};
-
 // Portfolio API
 export const portfolioAPI = {
   get: async () => {
@@ -144,33 +116,6 @@ export const testimonialsAPI = {
 
   delete: async (id: string) => {
     const response = await api.delete(`/testimonials/${id}`);
-    return response.data;
-  },
-};
-
-// Upload API
-export const uploadAPI = {
-  single: async (file: File) => {
-    const formData = new FormData();
-    formData.append('file', file);
-    
-    const response = await api.post('/upload/single', formData, {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-    });
-    return response.data;
-  },
-
-  multiple: async (files: File[]) => {
-    const formData = new FormData();
-    files.forEach(file => formData.append('files', file));
-    
-    const response = await api.post('/upload/multiple', formData, {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-    });
     return response.data;
   },
 };

@@ -1,6 +1,5 @@
 const express = require('express');
 const Portfolio = require('../models/Portfolio');
-const { adminAuth } = require('../middleware/auth');
 
 const router = express.Router();
 
@@ -22,7 +21,7 @@ router.get('/', async (req, res) => {
 // @desc    Create/Update portfolio info
 // @route   POST /api/portfolio
 // @access  Private (Admin)
-router.post('/', adminAuth, async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     let portfolio = await Portfolio.findOne({ isActive: true });
     
@@ -47,7 +46,7 @@ router.post('/', adminAuth, async (req, res) => {
 // @desc    Update portfolio info
 // @route   PUT /api/portfolio/:id
 // @access  Private (Admin)
-router.put('/:id', adminAuth, async (req, res) => {
+router.put('/:id', async (req, res) => {
   try {
     const portfolio = await Portfolio.findByIdAndUpdate(
       req.params.id,

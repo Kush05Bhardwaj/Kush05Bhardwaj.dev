@@ -1,6 +1,5 @@
 const express = require('express');
 const Testimonial = require('../models/Testimonial');
-const { adminAuth } = require('../middleware/auth');
 
 const router = express.Router();
 
@@ -28,7 +27,7 @@ router.get('/', async (req, res) => {
 // @desc    Create testimonial
 // @route   POST /api/testimonials
 // @access  Private (Admin)
-router.post('/', adminAuth, async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const testimonial = await Testimonial.create(req.body);
     res.status(201).json(testimonial);
@@ -40,7 +39,7 @@ router.post('/', adminAuth, async (req, res) => {
 // @desc    Update testimonial
 // @route   PUT /api/testimonials/:id
 // @access  Private (Admin)
-router.put('/:id', adminAuth, async (req, res) => {
+router.put('/:id', async (req, res) => {
   try {
     const testimonial = await Testimonial.findByIdAndUpdate(
       req.params.id,
@@ -61,7 +60,7 @@ router.put('/:id', adminAuth, async (req, res) => {
 // @desc    Delete testimonial
 // @route   DELETE /api/testimonials/:id
 // @access  Private (Admin)
-router.delete('/:id', adminAuth, async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
     const testimonial = await Testimonial.findByIdAndUpdate(
       req.params.id,

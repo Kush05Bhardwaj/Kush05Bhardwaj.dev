@@ -69,13 +69,11 @@ mongoose.connection.on('reconnected', () => {
 });
 
 // Routes
-app.use('/api/auth', require('./routes/auth'));
 app.use('/api/portfolio', require('./routes/portfolio'));
 app.use('/api/projects', require('./routes/projects'));
 app.use('/api/experience', require('./routes/experience'));
 app.use('/api/testimonials', require('./routes/testimonials'));
 app.use('/api/skills', require('./routes/skills'));
-app.use('/api/upload', require('./routes/upload'));
 app.use('/api/contact', require('./routes/contact'));
 
 // Health check

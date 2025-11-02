@@ -1,6 +1,5 @@
 const express = require('express');
 const Experience = require('../models/Experience');
-const { adminAuth } = require('../middleware/auth');
 
 const router = express.Router();
 
@@ -35,7 +34,7 @@ router.get('/:id', async (req, res) => {
 // @desc    Create experience
 // @route   POST /api/experience
 // @access  Private (Admin)
-router.post('/', adminAuth, async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const experience = await Experience.create(req.body);
     res.status(201).json(experience);
@@ -47,7 +46,7 @@ router.post('/', adminAuth, async (req, res) => {
 // @desc    Update experience
 // @route   PUT /api/experience/:id
 // @access  Private (Admin)
-router.put('/:id', adminAuth, async (req, res) => {
+router.put('/:id', async (req, res) => {
   try {
     const experience = await Experience.findByIdAndUpdate(
       req.params.id,
@@ -68,7 +67,7 @@ router.put('/:id', adminAuth, async (req, res) => {
 // @desc    Delete experience
 // @route   DELETE /api/experience/:id
 // @access  Private (Admin)
-router.delete('/:id', adminAuth, async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
     const experience = await Experience.findByIdAndUpdate(
       req.params.id,
