@@ -1,160 +1,190 @@
 # Portfolio Full-Stack Application
 
-> **Note**: The frontend is currently running in **static mode** and is disconnected from the backend. See [frontend/STATIC_MODE.md](frontend/STATIC_MODE.md) for details.
+> **✨ Now Running as Unified Next.js App!** The backend has been migrated to Next.js API routes. See [MIGRATION_GUIDE.md](MIGRATION_GUIDE.md) for details.
 
-A modern, full-stack portfolio application with separate frontend (Next.js) and backend (Express.js) with admin panel for content management.
+A modern, full-stack portfolio application built entirely with **Next.js 14** - featuring API routes, MongoDB integration, email functionality, and a beautiful UI.
 
 ## 🚀 Features
 
-### Frontend (Next.js)
-- Modern React with TypeScript
-- Tailwind CSS for styling
-- Responsive design
-- Dynamic content loading from API
-- Server-side rendering
+### Full-Stack Next.js Application
+- ⚡ **Next.js 14** with App Router
+- 🎨 Modern React with TypeScript
+- 💅 Tailwind CSS with custom design system
+- 📱 Fully responsive design
+- 🎭 Smooth animations and transitions
+- 🌙 Glassmorphic UI with dark theme
 
-### Backend (Express.js)
-- RESTful API design
-- MongoDB database integration
-- JWT authentication
-- File upload functionality
-- Input validation and security
-- Admin role management
+### Backend (Next.js API Routes)
+- 🔌 RESTful API design
+- 🗄️ MongoDB database integration
+- 📧 Email system with Nodemailer
+- ✅ Input validation with Joi
+- 🛡️ Rate limiting and security
+- 🔐 JWT authentication ready
 
-### Admin Panel
-- Secure admin authentication
-- Dashboard with analytics
-- Content management for:
-  - Personal information
-  - Projects
-  - Work experience
-  - Skills
-  - Testimonials
-- File upload management
-- Real-time updates
+### Content Sections
+- 👤 Hero with typing animation
+- 💼 Work experience timeline
+- 🚀 Featured projects showcase
+- 💬 Client testimonials
+- ⚡ Tech stack with proficiency levels
+- 📬 Contact form with email notifications
 
 ## 📋 Prerequisites
 
 - Node.js (v16 or higher)
 - MongoDB Atlas account (already configured)
 - npm package manager
+- Gmail account with app password (for email functionality)
 
 ## 🛠️ Installation & Setup
 
-### 1. Install All Dependencies
+### 1. Install Dependencies
 
 ```bash
-# Install root dependencies (concurrently)
+cd frontend
 npm install
-
-# Install both frontend and backend dependencies
-npm run install:all
 ```
 
 ### 2. Environment Setup
 
-Environment files are already configured:
+Create `frontend/.env.local` with your credentials:
 
-#### Backend Environment (backend/.env)
 ```env
-NODE_ENV=development
-PORT=5000
-MONGODB_URI=mongodb+srv://
-JWT_SECRET=your_jwt_secret_key_here_change_in_production
+# MongoDB
+MONGODB_URI=your_mongodb_connection_string
+
+# Email (Gmail)
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USER=your_email@gmail.com
+SMTP_PASS=your_gmail_app_password
+SMTP_FROM_NAME=Your Name
+SMTP_FROM_EMAIL=your_email@gmail.com
+CONTACT_EMAIL=your_email@gmail.com
+
+# Optional
+JWT_SECRET=your_jwt_secret_key
 JWT_EXPIRE=30d
-UPLOAD_PATH=./uploads
-MAX_FILE_SIZE=5000000
-ADMIN_EMAIL=admin@portfolio.com
-ADMIN_PASSWORD=admin123
-```
-
-#### Frontend Environment (frontend/.env.local)
-```env
-NEXT_PUBLIC_API_URL=http://localhost:5000/api
+NODE_ENV=development
 ```
 
 ### 3. Database Setup
 
-Database is already seeded with your data! ✅
+Your MongoDB database is already populated with data! ✅
 
 ### 4. Start the Application
 
-#### Option 1: Run Both Frontend and Backend Together (Recommended)
+**Quick Start** (from root directory):
 ```bash
 npm run dev
 ```
 
-#### Option 2: Run Separately
+Or manually:
 ```bash
-# Terminal 1 - Backend
-npm run backend:dev
+cd frontend
+npm run dev
+```
 
-# Terminal 2 - Frontend  
-npm run frontend:dev
+Or use the batch file (Windows):
+```bash
+start-dev.bat
 ```
 
 ## 🔗 Access Points
 
-- **Frontend Portfolio**: http://localhost:3000
-- **Admin Panel**: http://localhost:3000/admin
-- **Backend API**: http://localhost:5000/api
-- **API Health Check**: http://localhost:5000/api/health
+- **Portfolio Website**: http://localhost:3000
+- **API Health Check**: http://localhost:3000/api/health
+- **Skills API**: http://localhost:3000/api/skills
+- **Projects API**: http://localhost:3000/api/projects
+- **Contact API**: http://localhost:3000/api/contact
 
-## 👤 Admin Credentials
+## 🧪 Testing
 
-- **Email**: admin@portfolio.com
-- **Password**: admin123
-
-⚠️ **Important**: Change these credentials in production!
+Test all API endpoints:
+```bash
+npm run test:api
+```
+Or:
+```bash
+.\test-api.ps1
+```
 
 ## 📁 Project Structure
 
 ```
-Kush05BhardwajDev/
-├── frontend/               # Next.js Frontend
-│   ├── app/               # Next.js app directory
-│   │   ├── admin/         # Admin panel pages
-│   │   │   ├── login/     # Admin login
-│   │   │   ├── projects/  # Projects management
-│   │   │   ├── portfolio/ # Portfolio management
-│   │   │   └── page.tsx   # Admin dashboard
-│   │   ├── globals.css    # Global styles
-│   │   ├── layout.tsx     # Root layout
-│   │   └── page.tsx       # Homepage
-│   ├── components/        # React components
-│   │   ├── admin-layout.tsx # Admin panel layout
-│   │   └── ui/            # UI components
-│   ├── lib/               # Utilities and API client
-│   │   └── api/           # API service layer
-│   ├── public/            # Static assets
-│   ├── package.json       # Frontend dependencies
-│   └── .env.local         # Frontend environment
-├── backend/               # Express.js Backend
-│   ├── models/           # MongoDB models
-│   ├── routes/           # API routes
-│   ├── middleware/       # Custom middleware
-│   ├── utils/            # Utility functions
-│   ├── scripts/          # Database scripts
-│   ├── uploads/          # File uploads
-│   ├── server.js         # Server entry point
-│   ├── package.json      # Backend dependencies
-│   └── .env              # Backend environment
-├── package.json          # Root package.json with scripts
-└── README.md             # This file
+Kush05Bhardwaj.dev/
+├── frontend/                    # Next.js Full-Stack Application
+│   ├── app/
+│   │   ├── api/                # ⭐ Backend API Routes
+│   │   │   ├── health/         # Health check
+│   │   │   ├── skills/         # Skills CRUD
+│   │   │   ├── experience/     # Experience CRUD
+│   │   │   ├── projects/       # Projects CRUD
+│   │   │   ├── testimonials/   # Testimonials CRUD
+│   │   │   └── contact/        # Contact form + Email
+│   │   ├── globals.css         # Global styles
+│   │   ├── layout.tsx          # Root layout
+│   │   └── page.tsx            # Homepage
+│   ├── components/             # React components
+│   │   ├── hero.tsx           # Hero section
+│   │   ├── tech-stack.tsx     # Skills section
+│   │   ├── best-works.tsx     # Projects showcase
+│   │   ├── contact.tsx        # Contact form
+│   │   └── ui/                # shadcn/ui components
+│   ├── models/                 # ⭐ Mongoose Models
+│   │   ├── Skill.ts
+│   │   ├── Experience.ts
+│   │   ├── Project.ts
+│   │   ├── Testimonial.ts
+│   │   └── Contact.ts
+│   ├── lib/                    # Utilities
+│   │   ├── mongodb.ts         # ⭐ DB connection
+│   │   ├── email.ts           # ⭐ Email utilities
+│   │   └── api/               # API client
+│   ├── public/                 # Static assets
+│   ├── package.json            # All dependencies
+│   └── .env.local              # Environment variables
+├── MIGRATION_GUIDE.md          # Migration documentation
+├── MIGRATION_COMPLETE.md       # Migration summary
+├── QUICK_START.md              # Quick start guide
+├── test-api.ps1                # API testing script
+├── start-dev.bat               # Quick start (Windows)
+├── package.json                # Root scripts
+└── README.md                   # This file
 ```
-
-Built with ❤️ by Kush Bhardwaj
-
-- Modern responsive design
-- Smooth user experience with interactive UI
-- Projects showcase with links
-- Skills, testimonials, and contact sections
-- Fully deployed using Vercel
 
 ## 🛠️ Tech Stack
 
-- **Frontend:** React.js, Tailwind CSS, Next.js
-- **Deployment:** Vercel
-- **Icons & UI Components:** Lucide Icons, shadcn/ui 
+### Frontend
+- **Framework**: Next.js 14 (App Router)
+- **UI Library**: React 18 with TypeScript
+- **Styling**: Tailwind CSS
+- **Components**: shadcn/ui (Radix UI)
+- **Icons**: Lucide React
+- **Animations**: Framer Motion concepts
+
+### Backend (Next.js API Routes)
+- **Runtime**: Node.js
+- **Database**: MongoDB with Mongoose
+- **Email**: Nodemailer (Gmail SMTP)
+- **Validation**: Joi
+- **Security**: Rate limiting, input validation
+
+### Deployment
+- **Platform**: Vercel (recommended)
+- **Database**: MongoDB Atlas
+- **Email**: Gmail SMTP
+
+---
+
+Built with ❤️ by **Kush Bhardwaj**
+
+- ✨ Modern, responsive design
+- 🎨 Glassmorphic UI with dark theme
+- 🚀 Server-side rendering (SSR)
+- 📧 Email notifications & auto-reply
+- 🔒 Secure with rate limiting
+- 📱 Mobile-first approach 
 
 
