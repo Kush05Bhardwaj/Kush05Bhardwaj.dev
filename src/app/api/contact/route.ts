@@ -108,33 +108,41 @@ export async function POST(request: NextRequest) {
       userAgent: request.headers.get('user-agent') || undefined,
     });
 
-    // Send emails in background (don't await to improve response time)
-    Promise.all([
-      // Send notification email to you
-      sendEmail(emailTemplates.contactForm(value))
-        .then(() => {
-          contact.emailSent = true;
-          contact.status = 'sent';
-          return contact.save();
-        })
-        .catch((err) => {
-          console.error('Failed to send notification email:', err);
-          contact.status = 'failed';
-          return contact.save();
-        }),
-      
-      // Send auto-reply to user
-      sendEmail(emailTemplates.autoReply(value))
-        .then(() => {
-          contact.autoReplySent = true;
-          return contact.save();
-        })
-        .catch((err) => {
-          console.error('Failed to send auto-reply email:', err);
-        }),
-    ]).catch((err) => {
-      console.error('Email sending error:', err);
-    });
+    console.log('✅ Contact saved, sending emails...');
+
+    // Send emails (await to ensure they send on Vercel)
+    try {
+      await Promise.all([
+        // Send notification email to you
+        sendEmail(emailTemplates.contactForm(value))
+          .then(() => {
+            console.log('✅ Notification email sent successfully');
+            contact.emailSent = true;
+            contact.status = 'sent';
+            return contact.save();
+          })
+          .catch((err) => {
+            console.error('❌ Failed to send notification email:', err.message);
+            contact.status = 'failed';
+            return contact.save();
+          }),
+        
+        // Send auto-reply to user
+        sendEmail(emailTemplates.autoReply(value))
+          .then(() => {
+            console.log('✅ Auto-reply email sent successfully');
+            contact.autoReplySent = true;
+            return contact.save();
+          })
+          .catch((err) => {
+            console.error('❌ Failed to send auto-reply email:', err.message);
+          }),
+      ]);
+    } catch (err) {
+      console.error('❌ Email sending error:', err);
+    }
+
+    console.log('✅ All operations completed');
 
     return NextResponse.json(
       {
