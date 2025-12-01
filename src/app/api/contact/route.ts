@@ -4,6 +4,10 @@ import Contact from '@/models/Contact';
 import { sendEmail, emailTemplates } from '@/lib/email';
 import Joi from 'joi';
 
+// Force Node.js runtime (required for nodemailer)
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
+
 // Rate limiting - simple in-memory store (for production, use Redis or similar)
 const rateLimit = new Map<string, { count: number; resetTime: number }>();
 const RATE_LIMIT_WINDOW = 15 * 60 * 1000; // 15 minutes
