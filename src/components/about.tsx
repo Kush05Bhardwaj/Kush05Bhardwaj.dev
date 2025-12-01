@@ -166,12 +166,13 @@ export default function About() {
       </div>
 
       {/* Stats section */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-12">
         {[
           { value: "8+", label: "Projects Completed" },
           { value: "1+", label: "Years of Experience" },
           { value: "2+", label: "Happy Clients" },
           { value: "10+", label: "Technologies" },
+          { value: "50+", label: "DSA Problems Solved" },
         ].map((stat, index) => (
           <div
             key={index}

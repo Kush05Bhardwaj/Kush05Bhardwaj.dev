@@ -19,7 +19,7 @@ export default function Home() {
   useEffect(() => {
     setMounted(true)
     
-    // Scroll animation observer
+    // Enhanced scroll animation observer with better threshold
     const scrollObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -30,8 +30,8 @@ export default function Home() {
       },
       {
         root: null,
-        rootMargin: '0px',
-        threshold: 0.1,
+        rootMargin: '-50px', // Trigger slightly before element enters viewport
+        threshold: 0.15, // Trigger when 15% of element is visible
       }
     );
     

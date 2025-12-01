@@ -1,7 +1,5 @@
 # Portfolio Full-Stack Application
 
-> **✨ Now Running as Unified Next.js App!** The backend has been migrated to Next.js API routes. See [MIGRATION_GUIDE.md](MIGRATION_GUIDE.md) for details.
-
 A modern, full-stack portfolio application built entirely with **Next.js 14** - featuring API routes, MongoDB integration, email functionality, and a beautiful UI.
 
 ## 🚀 Features

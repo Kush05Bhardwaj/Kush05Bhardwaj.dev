@@ -1,26 +1,46 @@
-"use client"
+﻿"use client"
 
 import { Laptop } from "lucide-react"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
-import Image from "next/image"
+import { 
+  SiPython, 
+  SiJavascript, 
+  SiTypescript, 
+  SiReact, 
+  SiNextdotjs, 
+  SiNodedotjs,
+  SiMongodb,
+  SiHtml5,
+  SiCss3,
+  SiTailwindcss,
+  SiGit,
+  SiAmazon,
+  SiDocker,
+  SiTensorflow,
+  SiPostman,
+  SiLinux
+} from "react-icons/si"
+import { IconType } from "react-icons"
+import { JavaLogo } from "./icons/JavaLogo"
 
-// Tech stack data with icons
 const technologies = [
-  { name: "Python", icon: "🐍", color: "#3776AB", delay: 0 },
-  { name: "JavaScript", icon: "🟨", color: "#F7DF1E", delay: 0.1 },
-  { name: "TypeScript", icon: "📘", color: "#3178C6", delay: 0.2 },
-  { name: "React", icon: "⚛️", color: "#61DAFB", delay: 0.3 },
-  { name: "Next.js", icon: "▲", color: "#000000", delay: 0.4 },
-  { name: "Node.js", icon: "🟢", color: "#339933", delay: 0.5 },
-  { name: "MongoDB", icon: "🍃", color: "#47A248", delay: 0.6 },
-  { name: "HTML", icon: "🌐", color: "#E34F26", delay: 0.7 },
-  { name: "CSS", icon: "🎨", color: "#1572B6", delay: 0.8 },
-  { name: "Tailwind CSS", icon: "💨", color: "#06B6D4", delay: 0.9 },
-  { name: "Git", icon: "🔀", color: "#F05032", delay: 1.0 },
-  { name: "AWS", icon: "☁️", color: "#FF9900", delay: 1.1 },
-  { name: "Docker", icon: "🐳", color: "#2496ED", delay: 1.2 },
-  { name: "Java", icon: "☕", color: "#007396", delay: 1.3 },
-  { name: "Machine Learning", icon: "🤖", color: "#FF6F00", delay: 1.4 },
+  { name: "Python", Icon: SiPython, color: "#3776AB", delay: 0, duration: 3 },
+  { name: "JavaScript", Icon: SiJavascript, color: "#F7DF1E", delay: 0.1, duration: 3.5 },
+  { name: "TypeScript", Icon: SiTypescript, color: "#3178C6", delay: 0.2, duration: 4 },
+  { name: "React", Icon: SiReact, color: "#61DAFB", delay: 0.3, duration: 3.2 },
+  { name: "Next.js", Icon: SiNextdotjs, color: "#FFFFFF", delay: 0.4, duration: 3.8 },
+  { name: "Node.js", Icon: SiNodedotjs, color: "#339933", delay: 0.5, duration: 3.6 },
+  { name: "MongoDB", Icon: SiMongodb, color: "#47A248", delay: 0.6, duration: 4.2 },
+  { name: "HTML5", Icon: SiHtml5, color: "#E34F26", delay: 0.7, duration: 3.4 },
+  { name: "CSS3", Icon: SiCss3, color: "#1572B6", delay: 0.8, duration: 3.7 },
+  { name: "Tailwind", Icon: SiTailwindcss, color: "#06B6D4", delay: 0.9, duration: 3.3 },
+  { name: "Git", Icon: SiGit, color: "#F05032", delay: 1.0, duration: 3.9 },
+  { name: "AWS", Icon: SiAmazon, color: "#FF9900", delay: 1.1, duration: 3.5 },
+  { name: "Docker", Icon: SiDocker, color: "#2496ED", delay: 1.2, duration: 4.1 },
+  { name: "Java", Icon: JavaLogo as any, color: "#007396", delay: 1.3, duration: 3.6 },
+  { name: "TensorFlow", Icon: SiTensorflow, color: "#FF6F00", delay: 1.4, duration: 3.8 },
+  { name: "Postman", Icon: SiPostman, color: "#FF6C37", delay: 1.5, duration: 3.4 },
+  { name: "Linux", Icon: SiLinux, color: "#FCC624", delay: 1.6, duration: 3.7 },
 ]
 
 export default function TechStack() {
@@ -35,40 +55,38 @@ export default function TechStack() {
         </h2>
       </div>
 
-      {/* Floating Icons Grid */}
-      <div className="relative min-h-[500px] flex flex-wrap items-center justify-center gap-8 p-8">
-        {technologies.map((tech, index) => (
-          <div
-            key={tech.name}
-            className="group relative"
-            style={{
-              animation: `float ${3 + (index % 3)}s ease-in-out infinite`,
-              animationDelay: `${tech.delay}s`
-            }}
-          >
-            {/* Icon Container */}
-            <div className="relative flex flex-col items-center gap-3">
-              {/* Glow Effect */}
+      <div className="flex justify-center">
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-6 sm:gap-8 max-w-4xl justify-items-center">
+        {technologies.map((tech, index) => {
+          const { Icon } = tech
+          return (
+            <div
+              key={tech.name}
+              className={`group cursor-pointer flex flex-col items-center reveal-on-scroll ${isVisible ? 'is-revealed' : ''}`}
+              style={{
+                animation: `float ${tech.duration}s ease-in-out infinite`,
+                animationDelay: `${tech.delay}s`,
+                transitionDelay: `${index * 0.1}s`,
+              }}
+            >
               <div 
-                className="absolute inset-0 rounded-full blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-500"
-                style={{ 
-                  background: `radial-gradient(circle, ${tech.color}40, transparent)`,
-                  transform: 'scale(1.5)'
-                }}
-              />
-              
-              {/* Icon Circle */}
-              <div className="relative w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center rounded-full glass-card border-2 border-[#1e1b2f] group-hover:border-[#7b3fe4]/50 transition-all duration-500 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-[#7b3fe4]/20">
-                <span className="text-4xl sm:text-5xl">{tech.icon}</span>
+                className="relative flex items-center justify-center rounded-full glass-card border border-[#1e1b2f]/50 group-hover:border-[#7b3fe4] transition-all duration-300 group-hover:scale-110 w-16 h-16 sm:w-20 sm:h-20"
+              >
+                <Icon 
+                  className="w-8 h-8 sm:w-10 sm:h-10"
+                  style={{ 
+                    color: tech.color,
+                  }} 
+                />
               </div>
               
-              {/* Tech Name */}
-              <span className="text-sm font-medium text-[#a5a5c8] group-hover:text-[#b799ff] transition-colors duration-300 text-center whitespace-nowrap">
+              <span className="text-xs sm:text-sm font-medium text-[#a5a5c8] group-hover:text-[#b799ff] transition-colors duration-300 text-center mt-2">
                 {tech.name}
               </span>
             </div>
-          </div>
-        ))}
+          )
+        })}
+        </div>
       </div>
     </section>
   )
