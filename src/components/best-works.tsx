@@ -48,7 +48,7 @@ const projects = [
     shortDescription: "A Spotify-Style Music App with Personal Touches",
     images: ["/goonify.png"],
     liveUrl: "https://goonify-kindoff-spotify-clone.vercel.app",
-    technologies: ["js", "react", "ts", "tailwindcss", "next", "node"],
+    technologies: ["js", "react", "ts", "tailwindcss", "nextjs", "nodejs"],
   },
   {
     id: "6",
