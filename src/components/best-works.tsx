@@ -93,15 +93,22 @@ export default function BestWorks() {
             >
               {/* IMAGE */}
               <CardContent className="p-0">
-                <div className="relative h-48 w-full overflow-hidden rounded-t-xl">
+                <div className="relative h-48 w-full overflow-hidden rounded-t-xl bg-[#0b0a14]">
                   <Image
                     src={project.images?.[0] || "/placeholder.svg"}
                     alt={project.title}
                     fill
-                    className="object-cover transition-transform duration-500 will-change-transform group-hover:scale-110"
+                    className="
+                      object-cover
+                      scale-[1.05]
+                      transition-transform
+                      duration-500
+                      group-hover:scale-[1.15]
+                    "
                   />
                 </div>
               </CardContent>
+
 
               {/* CONTENT */}
               <CardFooter className="flex flex-col items-start p-6">
