@@ -93,19 +93,15 @@ export default function BestWorks() {
             >
               {/* IMAGE */}
               <CardContent className="p-0">
-                <div className="relative h-48 w-full overflow-hidden rounded-t-xl bg-[#0b0a14]">
-                  <Image
-                    src={project.images?.[0] || "/placeholder.svg"}
-                    alt={project.title}
-                    fill
-                    className="
-                      object-cover
-                      scale-[1.05]
-                      transition-transform
-                      duration-500
-                      group-hover:scale-[1.15]
-                    "
-                  />
+                <div className="relative h-48 w-full overflow-hidden rounded-t-xl bg-[#0b0a14] p-3">
+                  <div className="relative h-full w-full overflow-hidden rounded-lg">
+                    <Image
+                      src={project.images?.[0] || "/placeholder.svg"}
+                      alt={project.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
                 </div>
               </CardContent>
 
