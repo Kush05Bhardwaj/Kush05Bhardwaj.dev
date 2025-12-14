@@ -29,7 +29,7 @@ const projects = [
     id: "3",
     title: "Nexus",
     shortDescription: "Nexus - Personal AI Assistant with Local LLM Integration",
-    images: ["/Kush05BhardwajNexus.png"],
+    images: ["/Kush05BhardwajNexus1.png"],
     githubUrl:
       "https://github.com/Kush05Bhardwaj/Nexus-Personal-AI-Assistant-with-Local-LLM-Integration",
     technologies: ["python", "ai", "ml"],
@@ -54,7 +54,7 @@ const projects = [
     id: "6",
     title: "Python Scripts Collection",
     shortDescription: "A bunch of random Python stuff that somehow works.",
-    images: ["/Kush05Bhardwajpython-scripts.png"],
+    images: ["/Kush05Bhardwajpython-scripts1.png"],
     githubUrl: "https://github.com/Kush05Bhardwaj/python-scripts",
     technologies: ["python"],
   },
@@ -93,18 +93,21 @@ export default function BestWorks() {
             >
               {/* IMAGE */}
               <CardContent className="p-0">
-                <div className="relative h-48 w-full overflow-hidden rounded-t-xl bg-[#0b0a14] p-3">
-                  <div className="relative h-full w-full overflow-hidden rounded-lg">
-                    <Image
-                      src={project.images?.[0] || "/placeholder.svg"}
-                      alt={project.title}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
+                <div className="relative h-48 w-full overflow-hidden rounded-t-xl bg-[#0b0a14]">
+                  <Image
+                    src={project.images?.[0] || "/placeholder.svg"}
+                    alt={project.title}
+                    fill
+                    className="
+                      object-cover
+                      scale-[1.05]
+                      transition-transform
+                      duration-500
+                      group-hover:scale-[1.15]
+                    "
+                  />
                 </div>
               </CardContent>
-
 
               {/* CONTENT */}
               <CardFooter className="flex flex-col items-start p-6">
