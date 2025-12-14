@@ -14,7 +14,7 @@ const projects = [
     title: "Personal Portfolio",
     shortDescription: "Portfolio Website",
     images: ["/cv.png"],
-    liveUrl: "#",
+    liveUrl: "https://kush05bhardwaj.vercel.app/",
     technologies: ["js", "react", "ts", "tailwindcss"],
   },
   {
@@ -22,14 +22,14 @@ const projects = [
     title: "ECL Parcel",
     shortDescription: "Logistics Website",
     images: ["/ecl.png"],
-    liveUrl: "https://www.eclparcel.in/",
+    liveUrl: "https://www.eclparcel.in",
     technologies: ["js", "react", "nextjs", "tailwindcss"],
   },
   {
     id: "3",
     title: "Nexus",
     shortDescription: "Nexus - Personal AI Assistant with Local LLM Integration",
-    images: ["/Nexus.jpg"],
+    images: ["/Kush05BhardwajNexus.png"],
     githubUrl: "https://github.com/Kush05Bhardwaj/Nexus-Personal-AI-Assistant-with-Local-LLM-Integration",
     technologies: ["python", "ai", "ml"],
   },
@@ -38,9 +38,26 @@ const projects = [
     title: "Artistry",
     shortDescription: "Artistry AI Redesign",
     images: ["/Artistry.jpg"],
-    liveUrl: "#",
+    liveUrl: "https://artistry-six.vercel.app",
     technologies: ["js", "react", "ts", "tailwindcss", "python", "LLM"],
   },
+  {
+    id: "5",
+    title: "Goonify",
+    shortDescription: "A Spotify-Style Music App with Personal Touches",
+    images: ["/goonify.jpg"],
+    liveUrl: "https://goonify-kindoff-spotify-clone.vercel.app",
+    technologies: ["js", "react", "ts", "tailwindcss", "next", "node"],
+  },
+  {
+    id: "6",
+    title: "Python Scripts Collection",
+    shortDescription: "A bunch of random Python stuff that somehow works.",
+    images: ["/Kush05Bhardwajpython-scripts.png.jpg"],
+    githubUrl: "https://github.com/Kush05Bhardwaj/python-scripts",
+    technologies: ["python"],
+  },
+  
 ]
 
 export default function BestWorks() {
