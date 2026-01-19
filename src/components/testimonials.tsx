@@ -14,7 +14,7 @@ export default function Testimonials() {
     {
       id: 1,
       name: "Ravi Kant",
-      role: "COO",
+      role: "COO- ECL Parcel",
       content:
         "Kushagra is a very talented and hardworking individual. He is very passionate about his work and always delivers on time. I highly recommend him.",
     }
@@ -40,7 +40,7 @@ export default function Testimonials() {
 
   return (
     <section id="testimonials" className="py-16">
-      <div ref={ref} className={`flex items-center justify-center gap-2 mb-12 reveal-on-scroll ${isVisible ? 'is-revealed' : ''}`}>
+      <div className="flex items-center justify-center gap-2 mb-12">
         <MessageSquare className="text-[#7b3fe4]" />
         <h2 className="text-3xl font-bold">
           Check out these <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7b3fe4] to-[#b799ff]">Testimonials</span>

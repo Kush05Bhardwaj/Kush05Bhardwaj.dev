@@ -85,7 +85,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="py-8 sm:py-10">
-      <div ref={ref} className={`text-center mb-8 sm:mb-12 reveal-on-scroll ${isVisible ? 'is-revealed' : ''}`}>
+      <div className="text-center mb-8 sm:mb-12">
         <h2 className="text-3xl sm:text-4xl font-bold font-heading tracking-tight">
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7b3fe4] to-[#b799ff]">Get In Touch</span>
         </h2>

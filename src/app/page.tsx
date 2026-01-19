@@ -6,6 +6,7 @@ import Hero from "@/components/hero"
 import TechStack from "@/components/tech-stack"
 import BestWorks from "@/components/best-works"
 import WorkExperience from "@/components/work-experience"
+import Education from "@/components/education"
 import Testimonials from "@/components/testimonials"
 import Contact from "@/components/contact"
 import FloatingParticles from "@/components/floating-particles"
@@ -74,6 +75,7 @@ export default function Home() {
             { Component: BestWorks, delay: 0.2 },
             { Component: Testimonials, delay: 0.25 },
             { Component: WorkExperience, delay: 0.3 },
+            { Component: Education, delay: 0.35 },
           ].map(({ Component, delay }, index) => (
             <div
               key={index}
@@ -87,7 +89,7 @@ export default function Home() {
           {/* Contact section */}
           <div 
             className="animate-fade-in-up reveal-on-scroll glass-card hover-lift rounded-lg"
-            style={{ animationDelay: '0.35s', animationFillMode: 'both' }}
+            style={{ animationDelay: '0.4s', animationFillMode: 'both' }}
           >
             <Contact />
           </div>

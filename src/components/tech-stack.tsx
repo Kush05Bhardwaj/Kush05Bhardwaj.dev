@@ -48,7 +48,7 @@ export default function TechStack() {
 
   return (
     <section id="skills" className="py-16 overflow-hidden">
-      <div ref={ref} className={`flex items-center justify-center gap-2 mb-12 reveal-on-scroll ${isVisible ? 'is-revealed' : ''}`}>
+      <div className="flex items-center justify-center gap-2 mb-12">
         <Laptop className="text-[#7b3fe4]" />
         <h2 className="text-3xl font-bold">
           This is my <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7b3fe4] to-[#b799ff]">Tech Stack</span>
@@ -62,10 +62,8 @@ export default function TechStack() {
           return (
             <div
               key={tech.name}
-              className={`group cursor-pointer flex flex-col items-center reveal-on-scroll ${isVisible ? 'is-revealed' : ''}`}
+              className="group cursor-pointer flex flex-col items-center"
               style={{
-                animation: `float ${tech.duration}s ease-in-out infinite`,
-                animationDelay: `${tech.delay}s`,
                 transitionDelay: `${index * 0.1}s`,
               }}
             >

@@ -168,7 +168,7 @@ export default function About() {
       {/* Stats section */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-12">
         {[
-          { value: "8+", label: "Projects Completed" },
+          { value: "10+", label: "Projects Completed" },
           { value: "1+", label: "Years of Experience" },
           { value: "2+", label: "Happy Clients" },
           { value: "10+", label: "Technologies" },
@@ -201,7 +201,7 @@ export default function About() {
             <div className="mt-6">
               <h4 className="font-semibold text-[#e9e9f5] mb-2">My Interests:</h4>
               <div className="flex flex-wrap gap-2">
-                {["Web Development", "AI", "ML", "Open Source,", "and more..."].map((interest, i) => (
+                {["AI/ML", "AI-Assistants", "Web Development", "Open Source,", "and more..."].map((interest, i) => (
                   <span key={i} className="bg-[#1e1b2f] text-[#b799ff] px-3 py-1 rounded-full text-sm border border-[#7b3fe4]/20 transition-all duration-300 hover:border-[#7b3fe4]/50 hover:bg-[#7b3fe4]/10">
                     {interest}
                   </span>

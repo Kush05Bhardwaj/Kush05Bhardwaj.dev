@@ -8,21 +8,31 @@ import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 const experiences = [
   {
     id: "1",
-    company: "KR Mangalam University",
-    position: "Student",
-    logo: "/kr.png",
-    startDate: "2024-08-01",
-    endDate: undefined,
+    company: "ELite Coders Winter of Code '26",
+    position: "Contributor",
+    logo: "/elite.jpg",
+    startDate: "2026-01-01",
+    endDate: "present",
     current: true,
-    description: "I am a student at KR Mangalam University. I am pursuing B.Tech in Computer Science.",
+    description: "I participated as a contributor in ELite Coders Winter of Code '26, contributing to open source projects and collaborating with other developers.",
+  },
+  {
+    id: "2",
+    company: "Open Source Community",
+    position: "Contributor",
+    logo: "/white.jpg",
+    startDate: "2025-12-05",
+    endDate: "present",
+    current: true,
+    description: "I am a contributor to various open source projects. I enjoy collaborating with other developers and learning new technologies.",
   },
   {
     id: "2",
     company: "Cognifyz Technologies",
     position: "Web Developer Intern",
     logo: "/cognifyz-1.png",
-    startDate: "2025-05-01",
-    endDate: undefined,
+    startDate: "2025-05-17",
+    endDate: "2025-06-17",
     current: true,
     description: "I worked as a Web Dev Intern at Cognifyz Technologies.",
   },
@@ -48,7 +58,7 @@ export default function WorkExperience() {
 
   return (
     <section id="experience" className="py-16">
-      <div ref={ref} className={`flex items-center justify-center gap-2 mb-12 reveal-on-scroll ${isVisible ? 'is-revealed' : ''}`}>
+      <div className="flex items-center justify-center gap-2 mb-12">
         <Briefcase className="text-[#7b3fe4]" />
         <h2 className="text-3xl font-bold">
           My prior <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7b3fe4] to-[#b799ff]">Work Experience</span>

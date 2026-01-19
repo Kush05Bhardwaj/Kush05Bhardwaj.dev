@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 
 // Static projects data
-const projects = [
+const projects = [ 
   {
     id: "1",
     title: "Personal Portfolio",
@@ -19,20 +19,27 @@ const projects = [
   },
   {
     id: "2",
+    title: "Alisa-AI-Assistant",
+    shortDescription: "AI companion (local)",
+    images: ["/Kush05BhardwajAlisa.png"],
+    githubUrl: "https://github.com/Kush05Bhardwaj/Nexus-Alisa-AI-Assistant",
+    technologies: ["python", "LLM", "opencv", "AI", "ml"],
+  },
+    {
+    id: "3",
+    title: "Goonify",
+    shortDescription: "A Spotify-Style Music App with Personal Touches",
+    images: ["/goonify.png"],
+    liveUrl: "https://goonify-kindoff-spotify-clone.vercel.app",
+    technologies: ["js", "react", "ts", "tailwindcss", "nextjs", "nodejs"],
+  },
+  {
+    id: "4",
     title: "ECL Parcel",
     shortDescription: "Logistics Website",
     images: ["/ecl.png"],
     liveUrl: "https://www.eclparcel.in",
     technologies: ["js", "react", "nextjs", "tailwindcss"],
-  },
-  {
-    id: "3",
-    title: "Nexus",
-    shortDescription: "Nexus - Personal AI Assistant with Local LLM Integration",
-    images: ["/Kush05BhardwajNexus1.png"],
-    githubUrl:
-      "https://github.com/Kush05Bhardwaj/Nexus-Personal-AI-Assistant-with-Local-LLM-Integration",
-    technologies: ["python", "ai", "ml"],
   },
   {
     id: "4",
@@ -41,14 +48,6 @@ const projects = [
     images: ["/Artistry.jpg"],
     liveUrl: "https://artistry-six.vercel.app",
     technologies: ["js", "react", "ts", "tailwindcss", "python", "LLM"],
-  },
-  {
-    id: "5",
-    title: "Goonify",
-    shortDescription: "A Spotify-Style Music App with Personal Touches",
-    images: ["/goonify.png"],
-    liveUrl: "https://goonify-kindoff-spotify-clone.vercel.app",
-    technologies: ["js", "react", "ts", "tailwindcss", "nextjs", "nodejs"],
   },
   {
     id: "6",
@@ -66,10 +65,7 @@ export default function BestWorks() {
   return (
     <section id="projects" className="py-16">
       <div
-        ref={ref}
-        className={`flex items-center justify-center gap-2 mb-12 reveal-on-scroll ${
-          isVisible ? "is-revealed" : ""
-        }`}
+        className="flex items-center justify-center gap-2 mb-12"
       >
         <Code className="text-[#7b3fe4]" />
         <h2 className="text-3xl font-bold">
@@ -98,21 +94,21 @@ export default function BestWorks() {
                     src={project.images?.[0] || "/placeholder.svg"}
                     alt={project.title}
                     fill
-                    className="
-                      object-cover
+                    className={`
+                      ${project.id === '6' ? 'object-contain' : 'object-cover'}
                       scale-[1.05]
                       transition-transform
                       duration-500
                       group-hover:scale-[1.15]
-                    "
+                    `}
                   />
                 </div>
               </CardContent>
 
               {/* CONTENT */}
               <CardFooter className="flex flex-col items-start p-6">
-                <div className="flex justify-between w-full mb-4 gap-4">
-                  <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7b3fe4] to-[#b799ff]">
+                <div className="flex flex-col sm:flex-row sm:justify-between w-full mb-4 gap-2 sm:gap-4">
+                  <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7b3fe4] to-[#b799ff] break-words">
                     {project.title}
                   </h3>
 

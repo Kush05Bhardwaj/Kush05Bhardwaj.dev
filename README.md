@@ -23,6 +23,7 @@ A modern, full-stack portfolio application built entirely with **Next.js 14** - 
 ### Content Sections
 - 👤 Hero with typing animation
 - 💼 Work experience timeline
+- 🎓 Education section
 - 🚀 Featured projects showcase
 - 💬 Client testimonials
 - ⚡ Tech stack with proficiency levels
@@ -128,6 +129,9 @@ Kush05Bhardwaj.dev/
 │   │   ├── hero.tsx           # Hero section
 │   │   ├── tech-stack.tsx     # Skills section
 │   │   ├── best-works.tsx     # Projects showcase
+│   │   ├── work-experience.tsx # Experience timeline
+│   │   ├── education.tsx      # Education section
+│   │   ├── testimonials.tsx   # Testimonials
 │   │   ├── contact.tsx        # Contact form
 │   │   └── ui/                # shadcn/ui components
 │   ├── models/                 # ⭐ Mongoose Models
