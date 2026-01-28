@@ -172,7 +172,7 @@ export default function About() {
           { value: "1+", label: "Years of Experience" },
           { value: "2+", label: "Happy Clients" },
           { value: "10+", label: "Technologies" },
-          { value: "50+", label: "DSA Problems Solved" },
+          { value: "25+", label: "DSA Problems Solved" },
         ].map((stat, index) => (
           <div
             key={index}
