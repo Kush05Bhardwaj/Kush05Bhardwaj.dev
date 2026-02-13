@@ -2,10 +2,8 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { ArrowRight, Code } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 
 // Static projects data
 const projects = [ 
@@ -60,118 +58,141 @@ const projects = [
 ]
 
 export default function BestWorks() {
-  const { ref, isVisible } = useScrollReveal()
-
   return (
-    <section id="projects" className="py-16">
-      <div
-        className="flex items-center justify-center gap-2 mb-12"
-      >
-        <Code className="text-[#7b3fe4]" />
+    <section id="projects" className="py-16 overflow-hidden">
+      <div className="flex items-center justify-center gap-2 mb-12">
+        <Code className="text-[#ffffff]" />
         <h2 className="text-3xl font-bold">
-          Some of my{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7b3fe4] to-[#b799ff]">
-            Best Works
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ffffff] to-[#cccccc]">
+            Projects
           </span>
         </h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {projects.map((project, index) => {
-          const projectLink = project.liveUrl || project.githubUrl || "#"
-          const isExternal = projectLink.startsWith("http")
+      {/* Continuous Scrolling Container */}
+      <div className="relative">
+        {/* Add gradient overlays on edges */}
+        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
+        
+        {/* Scrolling wrapper */}
+        <div className="flex gap-6 animate-scroll hover:pause-animation">
+          {/* Duplicate projects array for seamless loop */}
+          {[...projects, ...projects].map((project, index) => {
+            const projectLink = project.liveUrl || project.githubUrl || "#"
+            const isExternal = projectLink.startsWith("http")
 
-          return (
-            <Card
-              key={project.id}
-              className="glass-card rounded-xl overflow-hidden group cursor-pointer transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#7b3fe4]/20"
-              style={{ animationDelay: `${0.1 + index * 0.1}s` }}
-            >
-              {/* IMAGE */}
-              <CardContent className="p-0">
-                <div className="relative h-48 w-full overflow-hidden rounded-t-xl bg-[#0b0a14]">
+            return (
+              <div
+                key={`${project.id}-${index}`}
+                className="flex-shrink-0 w-[500px] bg-zinc-900/50 rounded-2xl overflow-hidden border border-white/10 hover:border-white/30 transition-all duration-300 hover:scale-105"
+              >
+                {/* Image */}
+                <div className="relative h-[280px] w-full overflow-hidden bg-black">
                   <Image
                     src={project.images?.[0] || "/placeholder.svg"}
                     alt={project.title}
                     fill
                     className={`
-                      ${project.id === '6' ? 'object-contain' : 'object-cover'}
-                      scale-[1.05]
-                      transition-transform
-                      duration-500
-                      group-hover:scale-[1.15]
+                      ${project.id === '6' ? 'object-contain p-8' : 'object-cover'}
+                      transition-transform duration-500 hover:scale-110
                     `}
                   />
                 </div>
-              </CardContent>
 
-              {/* CONTENT */}
-              <CardFooter className="flex flex-col items-start p-6">
-                <div className="flex flex-col sm:flex-row sm:justify-between w-full mb-4 gap-2 sm:gap-4">
-                  <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7b3fe4] to-[#b799ff] break-words">
+                {/* Content */}
+                <div className="p-6 space-y-4">
+                  <h3 className="text-2xl font-bold text-white">
                     {project.title}
                   </h3>
+                  
+                  <p className="text-gray-400 text-sm line-clamp-2">
+                    {project.shortDescription}
+                  </p>
 
-                  <Link
-                    href={projectLink}
-                    target={isExternal ? "_blank" : undefined}
-                    rel={isExternal ? "noopener noreferrer" : undefined}
-                    className="text-[#a5a5c8] hover:text-[#7b3fe4] transition-all duration-300 hover:translate-x-1 whitespace-nowrap"
-                  >
-                    {project.shortDescription}{" "}
-                    <ArrowRight className="inline h-4 w-4" />
-                  </Link>
-                </div>
-
-                <div className="flex flex-wrap gap-2 mt-2">
-                  {project.technologies?.map((tech: string) => (
-                    <div
-                      key={tech}
-                      className="px-3 py-1 rounded-full text-xs font-medium bg-[#1e1b2f] text-[#b799ff] border border-[#7b3fe4]/20 transition-all duration-300 hover:border-[#7b3fe4]/50 hover:bg-[#7b3fe4]/10"
-                    >
-                      {tech === "js" && "JavaScript"}
-                      {tech === "react" && "React"}
-                      {tech === "ts" && "TypeScript"}
-                      {tech === "nextjs" && "Next.js"}
-                      {tech === "tailwindcss" && "Tailwind CSS"}
-                      {tech === "mongodb" && "MongoDB"}
-                      {tech === "git" && "Git & GitHub"}
-                      {tech === "ai" && "AI Integration"}
-                      {tech === "html5" && "HTML5"}
-                      {tech === "css3" && "CSS3"}
-                      {tech === "nodejs" && "Node.js"}
-                      {tech === "python" && "Python"}
-                      {tech === "ml" && "ML"}
-                      {tech === "LLM" && "LLM"}
-                      {![
-                        "js",
-                        "react",
-                        "ts",
-                        "nextjs",
-                        "tailwindcss",
-                        "mongodb",
-                        "git",
-                        "ai",
-                        "html5",
-                        "css3",
-                        "nodejs",
-                        "python",
-                        "ml",
-                        "LLM",
-                      ].includes(tech) && tech}
+                  {/* Technologies */}
+                  <div className="space-y-2">
+                    <p className="text-xs text-gray-500 uppercase tracking-wider font-semibold">
+                      Technologies
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {project.technologies?.slice(0, 4).map((tech: string) => (
+                        <div
+                          key={tech}
+                          className="px-3 py-1.5 rounded-full text-xs font-medium bg-zinc-800 text-gray-300 border border-white/10"
+                        >
+                          {tech === "js" && "JavaScript"}
+                          {tech === "react" && "React"}
+                          {tech === "ts" && "TypeScript"}
+                          {tech === "nextjs" && "Next.js"}
+                          {tech === "tailwindcss" && "Tailwind"}
+                          {tech === "mongodb" && "MongoDB"}
+                          {tech === "nodejs" && "Node.js"}
+                          {tech === "python" && "Python"}
+                          {tech === "ml" && "ML"}
+                          {tech === "LLM" && "LLM"}
+                          {tech === "opencv" && "OpenCV"}
+                          {tech === "AI" && "AI"}
+                          {![
+                            "js",
+                            "react",
+                            "ts",
+                            "nextjs",
+                            "tailwindcss",
+                            "mongodb",
+                            "nodejs",
+                            "python",
+                            "ml",
+                            "LLM",
+                            "opencv",
+                            "AI"
+                          ].includes(tech) && tech}
+                        </div>
+                      ))}
                     </div>
-                  ))}
+                  </div>
+
+                  {/* Buttons */}
+                  <div className="flex gap-3 pt-2">
+                    {project.liveUrl && (
+                      <Link
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 px-4 py-2.5 rounded-lg bg-white text-black font-medium hover:bg-gray-200 transition-all duration-300 text-center text-sm flex items-center justify-center gap-2"
+                      >
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                        Live
+                      </Link>
+                    )}
+                    
+                    {project.githubUrl && (
+                      <Link
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 px-4 py-2.5 rounded-lg bg-zinc-800 text-white font-medium border border-white/20 hover:border-white/40 hover:bg-zinc-700 transition-all duration-300 text-center text-sm flex items-center justify-center gap-2"
+                      >
+                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                          <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z" />
+                        </svg>
+                        Repo
+                      </Link>
+                    )}
+                  </div>
                 </div>
-              </CardFooter>
-            </Card>
-          )
-        })}
+              </div>
+            )
+          })}
+        </div>
       </div>
 
-      <div className="flex justify-center mt-12">
+      <div className="flex justify-center mt-16">
         <Button
           asChild
-          className="bg-[#7b3fe4] hover:bg-[#6b2fd4] text-white shadow-lg shadow-[#7b3fe4]/20 hover:shadow-[#7b3fe4]/30 transition-all duration-300 hover:scale-105"
+          className="bg-[#ffffff] hover:bg-[#e5e5e5] text-black shadow-lg shadow-[#ffffff]/20 hover:shadow-[#ffffff]/30 transition-all duration-300 hover:scale-105"
         >
           <Link
             href="https://github.com/Kush05Bhardwaj?tab=repositories"
@@ -182,6 +203,25 @@ export default function BestWorks() {
           </Link>
         </Button>
       </div>
+
+      <style jsx>{`
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+
+        .animate-scroll {
+          animation: scroll 40s linear infinite;
+        }
+
+        .pause-animation:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
     </section>
   )
 }

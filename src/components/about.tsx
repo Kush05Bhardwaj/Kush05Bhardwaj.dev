@@ -159,9 +159,9 @@ export default function About() {
   return (
     <section id="about" className="py-16">
       <div className="flex items-center justify-center gap-2 mb-12 animate-fade-in-up">
-        <Terminal className="text-[#7b3fe4]" />
+        <Terminal className="text-[#ffffff]" />
         <h2 className="text-3xl font-bold">
-          About <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7b3fe4] to-[#b799ff]">Me</span>
+          About <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ffffff] to-[#cccccc]">Me</span>
         </h2>
       </div>
 
@@ -176,10 +176,10 @@ export default function About() {
         ].map((stat, index) => (
           <div
             key={index}
-            className="glass-card p-6 text-center rounded-lg group transition-all duration-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#7b3fe4]/20"
+            className="glass-card p-6 text-center rounded-lg group transition-all duration-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#ffffff]/20"
             style={{ animationDelay: `${0.1 + index * 0.1}s` }}
           >
-            <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7b3fe4] to-[#b799ff] mb-2">{stat.value}</div>
+            <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#ffffff] to-[#cccccc] mb-2">{stat.value}</div>
             <div className="text-[#a5a5c8] text-sm">{stat.label}</div>
           </div>
         ))}
@@ -188,8 +188,8 @@ export default function About() {
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
         {/* Bio section */}
         <div className="lg:col-span-2">
-          <div className="rounded-xl p-6 h-full border border-[#1e1b2f] backdrop-blur-sm bg-[#0a0612]/40 group transition-all duration-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#7b3fe4]/20">
-            <h3 className="text-xl font-bold mb-4 text-[#7b3fe4]">Who am I?</h3>
+          <div className="rounded-xl p-6 h-full border border-[#1a1a1a] backdrop-blur-sm bg-[#000000]/40 group transition-all duration-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#ffffff]/20">
+            <h3 className="text-xl font-bold mb-4 text-[#ffffff]">Who am I?</h3>
             <p className="text-[#e9e9f5] mb-4">
               I'm a B.Tech student who likes coding and stuff. I specialize in solving real-world problems using AI and web technologies. 
               I always have an eye for new technologies and trends in the industry. 
@@ -202,7 +202,7 @@ export default function About() {
               <h4 className="font-semibold text-[#e9e9f5] mb-2">My Interests:</h4>
               <div className="flex flex-wrap gap-2">
                 {["AI/ML", "AI-Assistants", "Web Development", "Open Source,", "and more..."].map((interest, i) => (
-                  <span key={i} className="bg-[#1e1b2f] text-[#b799ff] px-3 py-1 rounded-full text-sm border border-[#7b3fe4]/20 transition-all duration-300 hover:border-[#7b3fe4]/50 hover:bg-[#7b3fe4]/10">
+                  <span key={i} className="bg-[#1a1a1a] text-[#cccccc] px-3 py-1 rounded-full text-sm border border-[#ffffff]/20 transition-all duration-300 hover:border-[#ffffff]/50 hover:bg-[#ffffff]/10">
                     {interest}
                   </span>
                 ))}
@@ -213,7 +213,7 @@ export default function About() {
 
         {/* CLI Terminal */}
         <div className="lg:col-span-3">
-          <div className="rounded-xl overflow-hidden h-full border border-[#1e1b2f] backdrop-blur-sm bg-black/90 font-mono shadow-2xl group transition-all duration-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#7b3fe4]/20">
+          <div className="rounded-xl overflow-hidden h-full border border-[#1a1a1a] backdrop-blur-sm bg-black/90 font-mono shadow-2xl group transition-all duration-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#ffffff]/20">
             {/* Terminal Header */}
             <div className="bg-[#1a1a1a] px-4 py-2 flex items-center justify-between border-b border-[#333]">
               <div className="flex items-center gap-2">
@@ -222,7 +222,7 @@ export default function About() {
                   <div className="w-3 h-3 rounded-full bg-[#ffbd2e] hover:brightness-110 transition-all cursor-pointer"></div>
                   <div className="w-3 h-3 rounded-full bg-[#27c93f] hover:brightness-110 transition-all cursor-pointer"></div>
                 </div>
-                <Terminal className="w-4 h-4 text-[#7b3fe4] ml-2" />
+                <Terminal className="w-4 h-4 text-[#ffffff] ml-2" />
                 <span className="text-xs text-[#888]">kush@portfolio:~</span>
               </div>
               <div className="text-xs text-[#666]">bash</div>
@@ -231,7 +231,7 @@ export default function About() {
             {/* Terminal Messages Area */}
             <div 
               ref={terminalRef}
-              className="h-[450px] overflow-y-auto p-4 space-y-2 bg-black/95 scrollbar-thin scrollbar-thumb-[#7b3fe4]/50 scrollbar-track-transparent"
+              className="h-[450px] overflow-y-auto p-4 space-y-2 bg-black/95 scrollbar-thin scrollbar-thumb-[#ffffff]/50 scrollbar-track-transparent"
             >
               {messages.map((message, index) => (
                 <div key={index} className="font-mono text-sm">
@@ -244,7 +244,7 @@ export default function About() {
                   {message.type === 'user' && (
                     <div className="flex items-start gap-2">
                       <span className="text-[#27c93f] select-none">➜</span>
-                      <span className="text-[#7b3fe4] select-none">~</span>
+                      <span className="text-[#ffffff] select-none">~</span>
                       <span className="text-white">{message.content}</span>
                     </div>
                   )}
@@ -259,7 +259,7 @@ export default function About() {
               
               {isTyping && (
                 <div className="flex items-center gap-2 pl-4">
-                  <span className="text-[#7b3fe4]">●</span>
+                  <span className="text-[#ffffff]">●</span>
                   <span className="text-[#666] text-sm">typing...</span>
                 </div>
               )}
@@ -270,7 +270,7 @@ export default function About() {
             <div className="bg-black border-t border-[#333] p-3">
               <div className="flex items-center gap-2">
                 <span className="text-[#27c93f] select-none">➜</span>
-                <span className="text-[#7b3fe4] select-none">~</span>
+                <span className="text-[#ffffff] select-none">~</span>
                 <Input
                   type="text"
                   value={userInput}
@@ -282,13 +282,13 @@ export default function About() {
                 <Button
                   onClick={handleSendMessage}
                   size="sm"
-                  className="bg-[#7b3fe4] hover:bg-[#6b2fd4] text-white transition-all duration-300 hover:scale-105"
+                  className="bg-[#ffffff] hover:bg-[#e5e5e5] text-white transition-all duration-300 hover:scale-105"
                 >
                   <Send className="h-3 w-3" />
                 </Button>
               </div>
               <div className="text-[#666] text-xs mt-2">
-                Try: <span className="text-[#7b3fe4] cursor-pointer hover:underline" onClick={() => setUserInput('help')}>help</span>, <span className="text-[#7b3fe4] cursor-pointer hover:underline" onClick={() => setUserInput('whoami')}>whoami</span>, <span className="text-[#7b3fe4] cursor-pointer hover:underline" onClick={() => setUserInput('ls skills')}>ls skills</span>, or ask anything!
+                Try: <span className="text-[#ffffff] cursor-pointer hover:underline" onClick={() => setUserInput('help')}>help</span>, <span className="text-[#ffffff] cursor-pointer hover:underline" onClick={() => setUserInput('whoami')}>whoami</span>, <span className="text-[#ffffff] cursor-pointer hover:underline" onClick={() => setUserInput('ls skills')}>ls skills</span>, or ask anything!
               </div>
             </div>
           </div>

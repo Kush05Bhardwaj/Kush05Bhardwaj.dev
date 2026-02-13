@@ -55,7 +55,7 @@ export default function TestimonialsManagement() {
           <h1 className="text-3xl font-bold text-white mb-2">Testimonials Management</h1>
           <p className="text-[#a5a5c8]">Manage client testimonials</p>
         </div>
-        <Button className="bg-gradient-to-r from-[#7b3fe4] to-[#b799ff]">
+        <Button className="bg-gradient-to-r from-[#ffffff] to-[#cccccc]">
           <Plus className="h-4 w-4 mr-2" />
           Add Testimonial
         </Button>
@@ -66,13 +66,13 @@ export default function TestimonialsManagement() {
       ) : (
         <div className="grid gap-4 md:grid-cols-2">
           {items.map((item) => (
-            <Card key={item._id} className="bg-[#1e1b2f] border-[#2d2640]">
+            <Card key={item._id} className="bg-[#1a1a1a] border-[#2d2640]">
               <CardContent className="pt-6">
                 <div className="space-y-3">
                   <div className="flex justify-between items-start">
                     <div>
                       <h3 className="text-lg font-bold text-white">{item.name}</h3>
-                      <p className="text-sm text-[#7b3fe4]">{item.position} at {item.company}</p>
+                      <p className="text-sm text-[#ffffff]">{item.position} at {item.company}</p>
                     </div>
                     <div className="flex gap-2">
                       <Button size="sm" variant="outline" className="border-[#2d2640]">

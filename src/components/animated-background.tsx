@@ -40,7 +40,7 @@ export default function AnimatedBackground() {
       const gridSize = 30 // Smaller spacing between grid lines
       const gridOpacity = 0.03 // Very subtle
       
-      ctx.strokeStyle = `rgba(123, 63, 228, ${gridOpacity})`
+      ctx.strokeStyle = `rgba(255, 255, 255, ${gridOpacity})`
       ctx.lineWidth = 1
       
       // Draw vertical lines
@@ -60,7 +60,7 @@ export default function AnimatedBackground() {
       }
       
       // Draw subtle dots at intersections
-      ctx.fillStyle = `rgba(123, 63, 228, ${gridOpacity * 2})`
+      ctx.fillStyle = `rgba(255, 255, 255, ${gridOpacity * 2})`
       for (let x = 0; x < width; x += gridSize) {
         for (let y = 0; y < height; y += gridSize) {
           ctx.beginPath()
@@ -72,16 +72,16 @@ export default function AnimatedBackground() {
 
     // Create moving dots
     const movingDots: MovingDot[] = []
-    const numDots = 25 // Much fewer dots
+    const numDots = 100 // More particles for better coverage
 
     for (let i = 0; i < numDots; i++) {
       movingDots.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 1,
-        vy: (Math.random() - 0.5) * 1,
-        size: Math.random() * 3 + 2, // Smaller: 2-5px
-        hue: Math.random() * 60 + 240 // Purple to blue range
+        vx: (Math.random() - 0.5) * 0.5, // Slower movement
+        vy: (Math.random() - 0.5) * 0.5,
+        size: Math.random() * 0.8 + 0.5, // Much smaller: 0.5-1.3px (tiny dots)
+        hue: 0 // White (0 hue with low saturation)
       })
     }
 
@@ -89,11 +89,8 @@ export default function AnimatedBackground() {
     let animationId: number
     
     function animate() {
-      // Dark background with gradient
-      const bgGradient = ctx.createLinearGradient(0, 0, width, height)
-      bgGradient.addColorStop(0, '#0a0612')
-      bgGradient.addColorStop(1, '#1a0f2e')
-      ctx.fillStyle = bgGradient
+      // Dark black background
+      ctx.fillStyle = '#000000'
       ctx.fillRect(0, 0, width, height)
 
       // Draw grid
@@ -113,27 +110,27 @@ export default function AnimatedBackground() {
         dot.x = Math.max(0, Math.min(width, dot.x))
         dot.y = Math.max(0, Math.min(height, dot.y))
 
-        // Draw glow
+        // Draw glow - small with more brightness
         const gradient = ctx.createRadialGradient(
           dot.x, dot.y, 0,
-          dot.x, dot.y, dot.size * 8
+          dot.x, dot.y, dot.size * 4
         )
-        gradient.addColorStop(0, `hsla(${dot.hue}, 70%, 50%, 0.15)`)
-        gradient.addColorStop(0.3, `hsla(${dot.hue}, 70%, 45%, 0.1)`)
-        gradient.addColorStop(0.6, `hsla(${dot.hue}, 70%, 40%, 0.05)`)
-        gradient.addColorStop(1, `hsla(${dot.hue}, 70%, 35%, 0)`)
+        gradient.addColorStop(0, `rgba(255, 255, 255, 0.35)`)
+        gradient.addColorStop(0.4, `rgba(255, 255, 255, 0.15)`)
+        gradient.addColorStop(0.7, `rgba(255, 255, 255, 0.05)`)
+        gradient.addColorStop(1, `rgba(255, 255, 255, 0)`)
 
         ctx.beginPath()
-        ctx.arc(dot.x, dot.y, dot.size * 8, 0, Math.PI * 2)
+        ctx.arc(dot.x, dot.y, dot.size * 4, 0, Math.PI * 2)
         ctx.fillStyle = gradient
         ctx.fill()
 
-        // Draw core dot - much dimmer
+        // Draw core dot - tiny and bright
         ctx.beginPath()
         ctx.arc(dot.x, dot.y, dot.size, 0, Math.PI * 2)
-        ctx.fillStyle = `hsla(${dot.hue}, 75%, 60%, 0.3)`
-        ctx.shadowBlur = 6
-        ctx.shadowColor = `hsla(${dot.hue}, 70%, 50%, 0.2)`
+        ctx.fillStyle = `rgba(255, 255, 255, 0.6)`
+        ctx.shadowBlur = 3
+        ctx.shadowColor = `rgba(255, 255, 255, 0.4)`
         ctx.fill()
         ctx.shadowBlur = 0
       })
@@ -153,7 +150,7 @@ export default function AnimatedBackground() {
     <canvas 
       ref={canvasRef} 
       className="w-full h-full"
-      style={{ background: '#0a0612' }}
+      style={{ background: '#000000' }}
     />
   )
 } 

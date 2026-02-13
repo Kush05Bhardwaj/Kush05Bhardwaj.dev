@@ -55,7 +55,7 @@ export default function ProjectsManagement() {
           <h1 className="text-3xl font-bold text-white mb-2">Projects Management</h1>
           <p className="text-[#a5a5c8]">Manage portfolio projects</p>
         </div>
-        <Button className="bg-gradient-to-r from-[#7b3fe4] to-[#b799ff]">
+        <Button className="bg-gradient-to-r from-[#ffffff] to-[#cccccc]">
           <Plus className="h-4 w-4 mr-2" />
           Add Project
         </Button>
@@ -66,7 +66,7 @@ export default function ProjectsManagement() {
       ) : (
         <div className="grid gap-4 md:grid-cols-2">
           {items.map((item) => (
-            <Card key={item._id} className="bg-[#1e1b2f] border-[#2d2640]">
+            <Card key={item._id} className="bg-[#1a1a1a] border-[#2d2640]">
               <CardContent className="pt-6">
                 <div className="space-y-3">
                   <div className="flex justify-between items-start">
@@ -88,19 +88,19 @@ export default function ProjectsManagement() {
                   <p className="text-[#a5a5c8] text-sm">{item.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {item.technologies?.map((tech, i) => (
-                      <span key={i} className="px-2 py-1 bg-[#7b3fe4]/10 text-[#7b3fe4] text-xs rounded">
+                      <span key={i} className="px-2 py-1 bg-[#ffffff]/10 text-[#ffffff] text-xs rounded">
                         {tech}
                       </span>
                     ))}
                   </div>
                   <div className="flex gap-2 pt-2">
                     {item.liveUrl && (
-                      <a href={item.liveUrl} target="_blank" rel="noopener noreferrer" className="text-sm text-[#7b3fe4] flex items-center gap-1">
+                      <a href={item.liveUrl} target="_blank" rel="noopener noreferrer" className="text-sm text-[#ffffff] flex items-center gap-1">
                         <ExternalLink className="h-3 w-3" /> Live
                       </a>
                     )}
                     {item.githubUrl && (
-                      <a href={item.githubUrl} target="_blank" rel="noopener noreferrer" className="text-sm text-[#7b3fe4] flex items-center gap-1">
+                      <a href={item.githubUrl} target="_blank" rel="noopener noreferrer" className="text-sm text-[#ffffff] flex items-center gap-1">
                         <ExternalLink className="h-3 w-3" /> GitHub
                       </a>
                     )}

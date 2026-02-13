@@ -39,14 +39,14 @@ export default function FloatingIcons() {
     // Add mouse move listener
     window.addEventListener('mousemove', handleMouseMove)
     
-    // Available colors - subtle gradients
+    // Available colors - subtle gradients (white/grey tones)
     const colors = [
-      'rgba(34, 211, 238, 0.6)',   // cyan-400
-      'rgba(59, 130, 246, 0.6)',   // blue-500
-      'rgba(168, 85, 247, 0.6)',   // purple-500
-      'rgba(99, 102, 241, 0.6)',   // indigo-500
-      'rgba(96, 165, 250, 0.6)',   // blue-400
-      'rgba(6, 182, 212, 0.6)',    // cyan-500
+      'rgba(255, 255, 255, 0.6)',  // white
+      'rgba(229, 229, 229, 0.6)',  // light grey
+      'rgba(204, 204, 204, 0.6)',  // medium light grey
+      'rgba(245, 245, 245, 0.6)',  // very light grey
+      'rgba(250, 250, 250, 0.6)',  // off-white
+      'rgba(220, 220, 220, 0.6)',  // medium grey
     ]
 
     // Create initial particles

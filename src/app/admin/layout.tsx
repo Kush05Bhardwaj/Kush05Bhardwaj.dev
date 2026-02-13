@@ -49,13 +49,13 @@ export default function AdminLayout({
   ]
 
   return (
-    <div className="min-h-screen bg-[#0a0612]">
+    <div className="min-h-screen bg-[#000000]">
       {/* Sidebar */}
-      <aside className="fixed left-0 top-0 z-40 h-screen w-64 bg-[#1e1b2f] border-r border-[#2d2640]">
+      <aside className="fixed left-0 top-0 z-40 h-screen w-64 bg-[#1a1a1a] border-r border-[#2d2640]">
         <div className="flex h-full flex-col">
           {/* Logo */}
           <div className="flex h-16 items-center border-b border-[#2d2640] px-6">
-            <h2 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7b3fe4] to-[#b799ff]">
+            <h2 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#ffffff] to-[#cccccc]">
               Admin Panel
             </h2>
           </div>
@@ -71,7 +71,7 @@ export default function AdminLayout({
                   href={item.href}
                   className={`flex items-center gap-3 rounded-lg px-3 py-2 text-sm transition-all hover:bg-[#2d2640] ${
                     isActive
-                      ? 'bg-[#7b3fe4]/10 text-[#7b3fe4]'
+                      ? 'bg-[#ffffff]/10 text-[#ffffff]'
                       : 'text-[#a5a5c8] hover:text-white'
                   }`}
                 >

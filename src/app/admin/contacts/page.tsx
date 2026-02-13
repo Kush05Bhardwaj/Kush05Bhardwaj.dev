@@ -58,7 +58,7 @@ export default function ContactsManagement() {
       </div>
 
       {loading ? (
-        <Card className="bg-[#1e1b2f] border-[#2d2640]">
+        <Card className="bg-[#1a1a1a] border-[#2d2640]">
           <CardContent className="pt-6">
             <div className="h-64 animate-pulse bg-[#2d2640] rounded"></div>
           </CardContent>
@@ -66,7 +66,7 @@ export default function ContactsManagement() {
       ) : (
         <div className="grid gap-4">
           {contacts.length === 0 ? (
-            <Card className="bg-[#1e1b2f] border-[#2d2640]">
+            <Card className="bg-[#1a1a1a] border-[#2d2640]">
               <CardContent className="pt-6">
                 <div className="text-center py-12 text-[#a5a5c8]">
                   No contact submissions yet.
@@ -77,14 +77,14 @@ export default function ContactsManagement() {
             contacts.map((contact) => (
               <Card
                 key={contact._id}
-                className="bg-[#1e1b2f] border-[#2d2640] hover:border-[#7b3fe4]/50 transition-all cursor-pointer"
+                className="bg-[#1a1a1a] border-[#2d2640] hover:border-[#ffffff]/50 transition-all cursor-pointer"
                 onClick={() => setSelectedContact(selectedContact?._id === contact._id ? null : contact)}
               >
                 <CardContent className="pt-6">
                   <div className="space-y-3">
                     <div className="flex items-start justify-between">
                       <div className="flex items-center gap-2">
-                        <User className="h-5 w-5 text-[#7b3fe4]" />
+                        <User className="h-5 w-5 text-[#ffffff]" />
                         <span className="font-semibold text-white">{contact.name}</span>
                       </div>
                       <div className="flex items-center gap-2 text-sm text-[#a5a5c8]">
@@ -95,7 +95,7 @@ export default function ContactsManagement() {
 
                     <div className="flex items-center gap-2 text-[#a5a5c8]">
                       <Mail className="h-4 w-4" />
-                      <a href={`mailto:${contact.email}`} className="hover:text-[#7b3fe4]">
+                      <a href={`mailto:${contact.email}`} className="hover:text-[#ffffff]">
                         {contact.email}
                       </a>
                     </div>

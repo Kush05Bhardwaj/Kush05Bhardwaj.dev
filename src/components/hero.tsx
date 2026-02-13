@@ -62,10 +62,10 @@ export default function Hero() {
           {/* Typing animation */}
           <div className="min-h-[80px]">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7b3fe4] via-[#a855f7] to-[#b799ff]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ffffff] via-[#d4d4d4] to-[#cccccc]">
                 {displayText}
               </span>
-              <span className="animate-cursor text-[#7b3fe4]">|</span>
+              <span className="animate-cursor text-[#ffffff]">|</span>
             </h2>
           </div>
 
@@ -80,7 +80,7 @@ export default function Hero() {
             <Button 
               asChild 
               size="lg"
-              className="bg-[#7b3fe4] hover:bg-[#6b2fd4] text-white shadow-lg shadow-[#7b3fe4]/20 hover:shadow-[#7b3fe4]/30 transition-all duration-300 hover:scale-105"
+              className="bg-[#ffffff] hover:bg-[#e5e5e5] text-black shadow-lg shadow-[#ffffff]/20 hover:shadow-[#ffffff]/30 transition-all duration-300 hover:scale-105"
             >
               <Link href="#contact">Get in Touch →</Link>
             </Button>
@@ -89,7 +89,7 @@ export default function Hero() {
               asChild
               size="lg"
               variant="outline"
-              className="border-[#1e1b2f] text-[#e9e9f5] hover:bg-[#1e1b2f] hover:text-white hover:border-[#7b3fe4]/30 transition-all duration-300 hover:scale-105"
+              className="border-[#1a1a1a] text-[#e9e9f5] hover:bg-[#1a1a1a] hover:text-white hover:border-[#ffffff]/30 transition-all duration-300 hover:scale-105"
             >
               <Link href="/Kush_Bhardwaj_CV.pdf" target="_blank" rel="noopener noreferrer">
                 <Download className="mr-2 h-4 w-4" /> Resume
@@ -103,7 +103,7 @@ export default function Hero() {
               href="https://www.linkedin.com/in/kush2012bhardwaj/" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="w-10 h-10 rounded-lg bg-[#1e1b2f] border border-[#1e1b2f] flex items-center justify-center text-[#a5a5c8] hover:text-[#7b3fe4] hover:border-[#7b3fe4]/50 hover:bg-[#1e1b2f]/80 transition-all duration-300 hover:scale-110 hover:-translate-y-1"
+              className="w-10 h-10 rounded-lg bg-[#1a1a1a] border border-[#1a1a1a] flex items-center justify-center text-[#a5a5c8] hover:text-[#ffffff] hover:border-[#ffffff]/50 hover:bg-[#1a1a1a]/80 transition-all duration-300 hover:scale-110 hover:-translate-y-1"
               aria-label="LinkedIn"
             >
               <Linkedin className="w-4 h-4" />
@@ -113,7 +113,7 @@ export default function Hero() {
               href="https://github.com/Kush05Bhardwaj" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="w-10 h-10 rounded-lg bg-[#1e1b2f] border border-[#1e1b2f] flex items-center justify-center text-[#a5a5c8] hover:text-[#7b3fe4] hover:border-[#7b3fe4]/50 hover:bg-[#1e1b2f]/80 transition-all duration-300 hover:scale-110 hover:-translate-y-1"
+              className="w-10 h-10 rounded-lg bg-[#1a1a1a] border border-[#1a1a1a] flex items-center justify-center text-[#a5a5c8] hover:text-[#ffffff] hover:border-[#ffffff]/50 hover:bg-[#1a1a1a]/80 transition-all duration-300 hover:scale-110 hover:-translate-y-1"
               aria-label="GitHub"
             >
               <Github className="w-4 h-4" />
@@ -123,7 +123,7 @@ export default function Hero() {
               href="https://leetcode.com/u/Kush05Bhardwaj/" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="w-10 h-10 rounded-lg bg-[#1e1b2f] border border-[#1e1b2f] flex items-center justify-center text-[#a5a5c8] hover:text-[#7b3fe4] hover:border-[#7b3fe4]/50 hover:bg-[#1e1b2f]/80 transition-all duration-300 hover:scale-110 hover:-translate-y-1"
+              className="w-10 h-10 rounded-lg bg-[#1a1a1a] border border-[#1a1a1a] flex items-center justify-center text-[#a5a5c8] hover:text-[#ffffff] hover:border-[#ffffff]/50 hover:bg-[#1a1a1a]/80 transition-all duration-300 hover:scale-110 hover:-translate-y-1"
               aria-label="LeetCode"
             >
               <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -137,11 +137,11 @@ export default function Hero() {
       {/* Profile Image */}
       <div ref={rightRef} className={`relative reveal-right ${rightVisible ? 'is-revealed' : ''}`}>
         <div className="relative w-[280px] h-[280px] sm:w-[320px] sm:h-[320px] transition-transform duration-500 hover:scale-105 animate-float">
-          {/* Subtle purple glow */}
-          <div className="absolute inset-0 rounded-full bg-[#7b3fe4]/10 blur-2xl"></div>
+          {/* Subtle white glow */}
+          <div className="absolute inset-0 rounded-full bg-[#ffffff]/10 blur-2xl"></div>
           
           {/* Image container */}
-          <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-[#1e1b2f] bg-[#0a0612]/50 shadow-xl hover:border-[#7b3fe4]/50 transition-all duration-500">
+          <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-[#1a1a1a] bg-[#000000]/50 shadow-xl hover:border-[#ffffff]/50 transition-all duration-500">
             <Image
               src="/KB.jpg?height=320&width=320"
               alt="Kushagra Bhardwaj"
@@ -156,3 +156,4 @@ export default function Hero() {
     </section>
   )
 }
+

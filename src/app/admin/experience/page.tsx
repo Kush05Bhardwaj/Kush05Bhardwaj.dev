@@ -56,7 +56,7 @@ export default function ExperienceManagement() {
           <h1 className="text-3xl font-bold text-white mb-2">Experience Management</h1>
           <p className="text-[#a5a5c8]">Manage work experience</p>
         </div>
-        <Button className="bg-gradient-to-r from-[#7b3fe4] to-[#b799ff]">
+        <Button className="bg-gradient-to-r from-[#ffffff] to-[#cccccc]">
           <Plus className="h-4 w-4 mr-2" />
           Add Experience
         </Button>
@@ -67,12 +67,12 @@ export default function ExperienceManagement() {
       ) : (
         <div className="grid gap-4">
           {items.map((item) => (
-            <Card key={item._id} className="bg-[#1e1b2f] border-[#2d2640]">
+            <Card key={item._id} className="bg-[#1a1a1a] border-[#2d2640]">
               <CardContent className="pt-6">
                 <div className="flex justify-between">
                   <div className="space-y-2">
                     <h3 className="text-xl font-bold text-white">{item.position}</h3>
-                    <p className="text-[#7b3fe4]">{item.company}</p>
+                    <p className="text-[#ffffff]">{item.company}</p>
                     <p className="text-sm text-[#a5a5c8]">
                       {new Date(item.startDate).toLocaleDateString()} - {item.isCurrentJob ? 'Present' : item.endDate ? new Date(item.endDate).toLocaleDateString() : 'N/A'}
                     </p>

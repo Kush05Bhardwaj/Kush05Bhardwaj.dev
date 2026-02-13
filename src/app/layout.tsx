@@ -38,7 +38,7 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
       </head>
-      <body className={`${inter.variable} ${montserrat.variable} ${jetbrainsMono.variable} font-sans antialiased selection:bg-indigo-500/20 selection:text-indigo-300`}>
+      <body className={`${inter.variable} ${montserrat.variable} ${jetbrainsMono.variable} font-sans antialiased selection:bg-gray-400/20 selection:text-gray-200`}>
         {children}
       </body>
     </html>

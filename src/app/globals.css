@@ -30,25 +30,25 @@
 }
 
 .dark {
-  --background: 260 47% 4%;
-  --foreground: 270 10% 96%;
-  --card: 260 47% 4%;
-  --card-foreground: 270 10% 96%;
-  --popover: 260 47% 4%;
-  --popover-foreground: 270 10% 96%;
-  --primary: 270 100% 68%;
-  --primary-foreground: 0 0% 98%;
-  --secondary: 270 71% 71%;
-  --secondary-foreground: 270 10% 96%;
-  --muted: 270 33% 11%;
-  --muted-foreground: 270 10% 65%;
-  --accent: 270 33% 11%;
-  --accent-foreground: 270 10% 96%;
+  --background: 0 0% 0%;
+  --foreground: 0 0% 98%;
+  --card: 0 0% 5%;
+  --card-foreground: 0 0% 98%;
+  --popover: 0 0% 5%;
+  --popover-foreground: 0 0% 98%;
+  --primary: 0 0% 98%;
+  --primary-foreground: 0 0% 10%;
+  --secondary: 0 0% 20%;
+  --secondary-foreground: 0 0% 90%;
+  --muted: 0 0% 10%;
+  --muted-foreground: 0 0% 60%;
+  --accent: 0 0% 15%;
+  --accent-foreground: 0 0% 90%;
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 0 0% 98%;
-  --border: 270 47% 12%;
-  --input: 270 47% 12%;
-  --ring: 270 100% 68%;
+  --border: 0 0% 15%;
+  --input: 0 0% 15%;
+  --ring: 0 0% 80%;
 }
 
 html {
@@ -148,7 +148,7 @@ body {
 
 .hover-lift:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(123, 63, 228, 0.15);
+  box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1);
 }
 
 @keyframes float {
@@ -197,7 +197,7 @@ body {
 
 .hover-lift:hover {
   transform: translateY(-4px);
-  box-shadow: 0 0 30px rgba(123, 63, 228, 0.2);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
 }
 
 .hover-scale {
@@ -214,8 +214,8 @@ body {
 }
 
 .hover-glow:hover {
-  box-shadow: 0 0 20px rgba(123, 63, 228, 0.3);
-  border-color: rgba(123, 63, 228, 0.5);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 /* ScrollReveal animations */
@@ -282,13 +282,13 @@ body {
 
 /* Card styles - cleaner and simpler */
 .glass-card {
-  @apply rounded-lg border border-[#1e1b2f] bg-[#0a0612]/30 backdrop-blur-sm;
+  @apply rounded-lg border border-[#1a1a1a] bg-black/30 backdrop-blur-sm;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
 }
 
 .glass-card:hover {
-  @apply border-[#7b3fe4]/30;
-  box-shadow: 0 0 20px rgba(123, 63, 228, 0.15), 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+  @apply border-white/20;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1), 0 4px 6px -1px rgba(0, 0, 0, 0.2);
 }
 
 /* Responsive grid adjustments */

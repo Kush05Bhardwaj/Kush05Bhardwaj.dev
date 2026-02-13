@@ -46,10 +46,10 @@ export default function AdminLogin() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#0a0612] p-4">
-      <Card className="w-full max-w-md bg-[#1e1b2f] border-[#2d2640]">
+    <div className="min-h-screen flex items-center justify-center bg-[#000000] p-4">
+      <Card className="w-full max-w-md bg-[#1a1a1a] border-[#2d2640]">
         <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-[#7b3fe4] to-[#b799ff]">
+          <CardTitle className="text-2xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-[#ffffff] to-[#cccccc]">
             Admin Login
           </CardTitle>
           <CardDescription className="text-center text-[#a5a5c8]">
@@ -69,7 +69,7 @@ export default function AdminLogin() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="bg-[#0a0612] border-[#2d2640] text-white focus:border-[#7b3fe4]"
+                className="bg-[#000000] border-[#2d2640] text-white focus:border-[#ffffff]"
               />
             </div>
             <div className="space-y-2">
@@ -83,7 +83,7 @@ export default function AdminLogin() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="bg-[#0a0612] border-[#2d2640] text-white focus:border-[#7b3fe4]"
+                className="bg-[#000000] border-[#2d2640] text-white focus:border-[#ffffff]"
               />
             </div>
 
@@ -96,7 +96,7 @@ export default function AdminLogin() {
             <Button
               type="submit"
               disabled={isLoading}
-              className="w-full bg-gradient-to-r from-[#7b3fe4] to-[#b799ff] hover:from-[#6b2fd4] hover:to-[#a688ee] text-white"
+              className="w-full bg-gradient-to-r from-[#ffffff] to-[#cccccc] hover:from-[#e5e5e5] hover:to-[#a688ee] text-white"
             >
               {isLoading ? 'Logging in...' : 'Login'}
             </Button>

@@ -33,11 +33,11 @@ export const emailTemplates = {
         <style>
           body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
           .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-          .header { background: linear-gradient(135deg, #7b3fe4 0%, #b799ff 100%); color: white; padding: 20px; border-radius: 10px 10px 0 0; }
+          .header { background: linear-gradient(135deg, #ffffff 0%, #cccccc 100%); color: white; padding: 20px; border-radius: 10px 10px 0 0; }
           .content { background: #f9f9f9; padding: 30px; border-radius: 0 0 10px 10px; }
           .field { margin-bottom: 20px; }
-          .label { font-weight: bold; color: #7b3fe4; margin-bottom: 5px; }
-          .value { background: white; padding: 10px; border-radius: 5px; border-left: 3px solid #7b3fe4; }
+          .label { font-weight: bold; color: #ffffff; margin-bottom: 5px; }
+          .value { background: white; padding: 10px; border-radius: 5px; border-left: 3px solid #ffffff; }
           .footer { text-align: center; margin-top: 20px; color: #666; font-size: 12px; }
         </style>
       </head>
@@ -98,11 +98,11 @@ Time: ${new Date().toLocaleString()}
         <style>
           body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
           .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-          .header { background: linear-gradient(135deg, #7b3fe4 0%, #b799ff 100%); color: white; padding: 30px; border-radius: 10px 10px 0 0; text-align: center; }
+          .header { background: linear-gradient(135deg, #ffffff 0%, #cccccc 100%); color: white; padding: 30px; border-radius: 10px 10px 0 0; text-align: center; }
           .content { background: #f9f9f9; padding: 30px; border-radius: 0 0 10px 10px; }
           .footer { text-align: center; margin-top: 20px; color: #666; font-size: 12px; }
           .social-links { margin-top: 20px; text-align: center; }
-          .social-links a { margin: 0 10px; color: #7b3fe4; text-decoration: none; }
+          .social-links a { margin: 0 10px; color: #ffffff; text-decoration: none; }
         </style>
       </head>
       <body>
@@ -114,7 +114,7 @@ Time: ${new Date().toLocaleString()}
             <p>Hi ${data.name},</p>
             <p>Thank you for your message regarding "<strong>${data.subject}</strong>". I have received your inquiry and will get back to you as soon as possible.</p>
             <p>Your message:</p>
-            <div style="background: white; padding: 15px; border-radius: 5px; border-left: 3px solid #7b3fe4; margin: 20px 0;">
+            <div style="background: white; padding: 15px; border-radius: 5px; border-left: 3px solid #ffffff; margin: 20px 0;">
               ${data.message.replace(/\n/g, '<br>')}
             </div>
             <p>I typically respond within 24-48 hours. If your matter is urgent, feel free to reach out to me directly at <a href="mailto:kush2012bhardwaj@gmail.com">kush2012bhardwaj@gmail.com</a>.</p>

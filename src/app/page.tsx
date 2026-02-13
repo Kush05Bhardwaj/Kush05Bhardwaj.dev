@@ -13,6 +13,7 @@ import FloatingParticles from "@/components/floating-particles"
 import About from "@/components/about"
 import Footer from "@/components/footer"
 import AnimatedBackground from "@/components/animated-background"
+import BackToTop from "@/components/back-to-top"
 
 export default function Home() {
   const [mounted, setMounted] = useState(false)
@@ -50,7 +51,7 @@ export default function Home() {
   if (!mounted) return null
 
   return (
-    <main className="min-h-screen bg-[#0a0612] relative overflow-hidden">
+    <main className="min-h-screen bg-[#000000] relative overflow-hidden">
       {/* Background Elements */}
       <div className="fixed inset-0 z-0">
         <AnimatedBackground />
@@ -79,7 +80,7 @@ export default function Home() {
           ].map(({ Component, delay }, index) => (
             <div
               key={index}
-              className="animate-fade-in-up reveal-on-scroll glass-card p-6 sm:p-8 hover-lift rounded-lg"
+              className="animate-fade-in-up reveal-on-scroll"
               style={{ animationDelay: `${delay}s`, animationFillMode: 'both' }}
             >
               <Component />
@@ -88,7 +89,7 @@ export default function Home() {
           
           {/* Contact section */}
           <div 
-            className="animate-fade-in-up reveal-on-scroll glass-card hover-lift rounded-lg"
+            className="animate-fade-in-up reveal-on-scroll"
             style={{ animationDelay: '0.4s', animationFillMode: 'both' }}
           >
             <Contact />
@@ -98,6 +99,9 @@ export default function Home() {
           <Footer />
         </div>
       </div>
+      
+      {/* Back to Top Button */}
+      <BackToTop />
     </main>
   )
 }

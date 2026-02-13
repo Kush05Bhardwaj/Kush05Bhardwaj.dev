@@ -119,12 +119,12 @@ export default function SkillsManagement() {
           if (!open) resetForm()
         }}>
           <DialogTrigger asChild>
-            <Button className="bg-gradient-to-r from-[#7b3fe4] to-[#b799ff]">
+            <Button className="bg-gradient-to-r from-[#ffffff] to-[#cccccc]">
               <Plus className="h-4 w-4 mr-2" />
               Add Skill
             </Button>
           </DialogTrigger>
-          <DialogContent className="bg-[#1e1b2f] border-[#2d2640] text-white">
+          <DialogContent className="bg-[#1a1a1a] border-[#2d2640] text-white">
             <DialogHeader>
               <DialogTitle>{editingSkill ? 'Edit Skill' : 'Add New Skill'}</DialogTitle>
             </DialogHeader>
@@ -134,7 +134,7 @@ export default function SkillsManagement() {
                 <Input
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="bg-[#0a0612] border-[#2d2640] text-white"
+                  className="bg-[#000000] border-[#2d2640] text-white"
                   required
                 />
               </div>
@@ -146,7 +146,7 @@ export default function SkillsManagement() {
                   max="100"
                   value={formData.proficiency}
                   onChange={(e) => setFormData({ ...formData, proficiency: parseInt(e.target.value) })}
-                  className="bg-[#0a0612] border-[#2d2640] text-white"
+                  className="bg-[#000000] border-[#2d2640] text-white"
                   required
                 />
               </div>
@@ -155,7 +155,7 @@ export default function SkillsManagement() {
                 <select
                   value={formData.category}
                   onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                  className="w-full px-3 py-2 bg-[#0a0612] border border-[#2d2640] rounded-md text-white"
+                  className="w-full px-3 py-2 bg-[#000000] border border-[#2d2640] rounded-md text-white"
                   required
                 >
                   {categories.map(cat => (
@@ -164,7 +164,7 @@ export default function SkillsManagement() {
                 </select>
               </div>
               <div className="flex gap-2">
-                <Button type="submit" className="flex-1 bg-gradient-to-r from-[#7b3fe4] to-[#b799ff]">
+                <Button type="submit" className="flex-1 bg-gradient-to-r from-[#ffffff] to-[#cccccc]">
                   <Save className="h-4 w-4 mr-2" />
                   {editingSkill ? 'Update' : 'Create'}
                 </Button>
@@ -179,13 +179,13 @@ export default function SkillsManagement() {
       </div>
 
       {loading ? (
-        <Card className="bg-[#1e1b2f] border-[#2d2640]">
+        <Card className="bg-[#1a1a1a] border-[#2d2640]">
           <CardContent className="pt-6">
             <div className="h-64 animate-pulse bg-[#2d2640] rounded"></div>
           </CardContent>
         </Card>
       ) : (
-        <Card className="bg-[#1e1b2f] border-[#2d2640]">
+        <Card className="bg-[#1a1a1a] border-[#2d2640]">
           <CardContent className="pt-6">
             <div className="overflow-x-auto">
               <table className="w-full">
@@ -206,7 +206,7 @@ export default function SkillsManagement() {
                         <div className="flex items-center gap-2">
                           <div className="flex-1 h-2 bg-[#2d2640] rounded-full overflow-hidden">
                             <div 
-                              className="h-full bg-gradient-to-r from-[#7b3fe4] to-[#b799ff]"
+                              className="h-full bg-gradient-to-r from-[#ffffff] to-[#cccccc]"
                               style={{ width: `${skill.proficiency}%` }}
                             ></div>
                           </div>
@@ -219,7 +219,7 @@ export default function SkillsManagement() {
                             size="sm"
                             variant="outline"
                             onClick={() => handleEdit(skill)}
-                            className="border-[#2d2640] hover:border-[#7b3fe4]"
+                            className="border-[#2d2640] hover:border-[#ffffff]"
                           >
                             <Edit className="h-4 w-4" />
                           </Button>

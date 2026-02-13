@@ -39,9 +39,9 @@ export default function Education() {
   return (
     <section id="education" className="py-16">
       <div className="flex items-center justify-center gap-2 mb-12">
-        <GraduationCap className="text-[#7b3fe4]" />
+        <GraduationCap className="text-[#ffffff]" />
         <h2 className="text-3xl font-bold">
-          My <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7b3fe4] to-[#b799ff]">Education</span>
+          My <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ffffff] to-[#cccccc]">Education</span>
         </h2>
       </div>
 
@@ -49,7 +49,7 @@ export default function Education() {
         {education.map((edu, index) => (
           <Card
             key={edu.id}
-            className="glass-card rounded-lg group transition-all duration-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#7b3fe4]/20"
+            className="glass-card rounded-lg group transition-all duration-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#ffffff]/20"
             style={{ animationDelay: `${0.1 + index * 0.1}s` }}
           >
             <CardContent className="p-6">
@@ -60,9 +60,9 @@ export default function Education() {
                     alt={`${edu.company} logo`}
                     className="w-8 h-8 rounded-full transition-transform duration-300 group-hover:scale-110"
                   />
-                  <h3 className="font-medium text-[#e9e9f5] group-hover:text-[#b799ff] transition-colors duration-300">{edu.company}</h3>
+                  <h3 className="font-medium text-[#e9e9f5] group-hover:text-[#cccccc] transition-colors duration-300">{edu.company}</h3>
                 </div>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7b3fe4] to-[#b799ff]">{edu.position}</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ffffff] to-[#cccccc]">{edu.position}</span>
               </div>
               <p className="mt-4 text-[#e9e9f5]">{edu.description}</p>
               <p className="mt-2 text-sm text-[#a5a5c8]">

@@ -50,7 +50,7 @@ export default function AdminDashboard() {
   const statCards = [
     { title: 'Skills', value: stats.skills, icon: Award, color: 'from-blue-500 to-blue-600' },
     { title: 'Experience', value: stats.experience, icon: Briefcase, color: 'from-green-500 to-green-600' },
-    { title: 'Projects', value: stats.projects, icon: FolderKanban, color: 'from-purple-500 to-purple-600' },
+    { title: 'Projects', value: stats.projects, icon: FolderKanban, color: 'from-gray-400 to-gray-500' },
     { title: 'Testimonials', value: stats.testimonials, icon: MessageSquare, color: 'from-yellow-500 to-yellow-600' },
     { title: 'Contacts', value: stats.contacts, icon: Mail, color: 'from-red-500 to-red-600' },
   ]
@@ -65,7 +65,7 @@ export default function AdminDashboard() {
       {loading ? (
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {[...Array(5)].map((_, i) => (
-            <Card key={i} className="bg-[#1e1b2f] border-[#2d2640]">
+            <Card key={i} className="bg-[#1a1a1a] border-[#2d2640]">
               <CardContent className="pt-6">
                 <div className="h-24 animate-pulse bg-[#2d2640] rounded"></div>
               </CardContent>
@@ -77,7 +77,7 @@ export default function AdminDashboard() {
           {statCards.map((stat) => {
             const Icon = stat.icon
             return (
-              <Card key={stat.title} className="bg-[#1e1b2f] border-[#2d2640] hover:border-[#7b3fe4]/50 transition-all">
+              <Card key={stat.title} className="bg-[#1a1a1a] border-[#2d2640] hover:border-[#ffffff]/50 transition-all">
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                   <CardTitle className="text-sm font-medium text-[#a5a5c8]">
                     {stat.title}
@@ -97,7 +97,7 @@ export default function AdminDashboard() {
       )}
 
       {/* Quick Actions */}
-      <Card className="bg-[#1e1b2f] border-[#2d2640]">
+      <Card className="bg-[#1a1a1a] border-[#2d2640]">
         <CardHeader>
           <CardTitle className="text-white">Quick Actions</CardTitle>
         </CardHeader>

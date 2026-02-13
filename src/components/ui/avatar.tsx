@@ -11,7 +11,7 @@ const AvatarWithRings = React.forwardRef<
     showRings?: boolean;
     ringColors?: string[];
   }
->(({ className, showRings = false, ringColors = ["border-cyan-500/50", "border-indigo-500/30", "border-purple-500/20"], ...props }, ref) => (
+>(({ className, showRings = false, ringColors = ["border-gray-300/50", "border-gray-400/30", "border-gray-500/20"], ...props }, ref) => (
   <div className={cn(
     "relative inline-flex items-center justify-center",
     showRings && "p-4",
@@ -27,7 +27,7 @@ const AvatarWithRings = React.forwardRef<
         <div 
           className={cn(
             "absolute rounded-full border-2 animate-pulse-slow",
-            ringColors[1] || "border-indigo-500/30",
+            ringColors[1] || "border-gray-400/30",
             "h-[calc(100%+0.5rem)] w-[calc(100%+0.5rem)]"
           )} 
           style={{ animationDelay: "0.5s" }}
@@ -35,7 +35,7 @@ const AvatarWithRings = React.forwardRef<
         <div 
           className={cn(
             "absolute rounded-full border-2 animate-pulse-slow",
-            ringColors[2] || "border-purple-500/20",
+            ringColors[2] || "border-gray-500/20",
             "h-[calc(100%+1rem)] w-[calc(100%+1rem)]"
           )}
           style={{ animationDelay: "1s" }}

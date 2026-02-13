@@ -42,13 +42,13 @@ export default function Navbar() {
     <nav className={cn(
       "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
       scrolled 
-        ? "backdrop-blur-md bg-[#0a0612]/95 border-b border-[#1e1b2f] shadow-lg py-3" 
-        : "backdrop-blur-sm bg-[#0a0612]/80 py-4"
+        ? "backdrop-blur-md bg-[#000000]/95 border-b border-[#1a1a1a] shadow-lg py-3" 
+        : "backdrop-blur-sm bg-[#000000]/80 py-4"
     )}>
       <div className="container mx-auto flex items-center justify-between px-4">
         <Link 
           href="#home" 
-          className="font-mono text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#7b3fe4] to-[#b799ff]"
+          className="font-mono text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#ffffff] to-[#cccccc]"
         >
           Kush05Bhardwaj
         </Link>
@@ -70,8 +70,8 @@ export default function Navbar() {
               className={cn(
                 "px-3 py-2 rounded-md text-sm font-medium transition-all duration-200",
                 pathname === item.href || (pathname === "/" && item.href === "#home")
-                  ? "text-[#7b3fe4] bg-[#7b3fe4]/10"
-                  : "text-[#a5a5c8] hover:text-[#e9e9f5] hover:bg-[#1e1b2f]",
+                  ? "text-[#ffffff] bg-[#ffffff]/10"
+                  : "text-[#a5a5c8] hover:text-[#e9e9f5] hover:bg-[#1a1a1a]",
               )}
             >
               {item.name}
@@ -82,7 +82,7 @@ export default function Navbar() {
 
       {/* Mobile navigation */}
       {isMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-[#0a0612]/95 backdrop-blur-md border-t border-[#1e1b2f] shadow-lg animate-fade-in">
+        <div className="md:hidden absolute top-full left-0 w-full bg-[#000000]/95 backdrop-blur-md border-t border-[#1a1a1a] shadow-lg animate-fade-in">
           <div className="flex flex-col space-y-1 py-3 px-4">
             {navItems.map((item) => (
               <Link
@@ -92,8 +92,8 @@ export default function Navbar() {
                 className={cn(
                   "px-4 py-3 rounded-md text-sm font-medium transition-all duration-200",
                   pathname === item.href || (pathname === "/" && item.href === "#home")
-                    ? "text-[#7b3fe4] bg-[#7b3fe4]/10 border-l-2 border-[#7b3fe4]"
-                    : "text-[#a5a5c8] hover:text-[#e9e9f5] hover:bg-[#1e1b2f]",
+                    ? "text-[#ffffff] bg-[#ffffff]/10 border-l-2 border-[#ffffff]"
+                    : "text-[#a5a5c8] hover:text-[#e9e9f5] hover:bg-[#1a1a1a]",
                 )}
               >
                 {item.name}
