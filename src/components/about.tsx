@@ -14,7 +14,7 @@ interface Message {
 export default function About() {
   const [userInput, setUserInput] = useState("")
   const [messages, setMessages] = useState<Message[]>([
-    { type: 'system', content: 'Kush05Bhardwaj Terminal v1.0.0 (Gurgaon, India)' },
+    { type: 'system', content: 'Kush05Bhardwaj Terminal v1.0.2' },
     { type: 'system', content: 'Type "help" for available commands.' },
     { type: 'assistant', content: 'Want to know more about me? Ask away 👇' }
   ])
@@ -172,7 +172,7 @@ export default function About() {
           { value: "1+", label: "Years of Experience" },
           { value: "2+", label: "Happy Clients" },
           { value: "10+", label: "Technologies" },
-          { value: "50+", label: "DSA Problems Solved" },
+          { value: "25+", label: "DSA Problems Solved" },
         ].map((stat, index) => (
           <div
             key={index}
@@ -223,7 +223,7 @@ export default function About() {
                   <div className="w-3 h-3 rounded-full bg-[#27c93f] hover:brightness-110 transition-all cursor-pointer"></div>
                 </div>
                 <Terminal className="w-4 h-4 text-[#ffffff] ml-2" />
-                <span className="text-xs text-[#888]">kush@portfolio:~</span>
+                <span className="text-xs text-[#888]">kush05bhardwaj@portfolio:~</span>
               </div>
               <div className="text-xs text-[#666]">bash</div>
             </div>
@@ -282,11 +282,11 @@ export default function About() {
                 <Button
                   onClick={handleSendMessage}
                   size="sm"
-                  className="bg-[#ffffff] hover:bg-[#e5e5e5] text-white transition-all duration-300 hover:scale-105"
+                  className="w-10 h-10 rounded-lg bg-[#1a1a1a] border border-[#1a1a1a] flex items-center justify-center text-[#a5a5c8] hover:text-[#ffffff] hover:border-[#ffffff]/50 hover:bg-[#1a1a1a]/80 transition-all duration-300 hover:scale-110 hover:-translate-y-1"
                 >
                   <Send className="h-3 w-3" />
                 </Button>
-              </div>
+              </div> 
               <div className="text-[#666] text-xs mt-2">
                 Try: <span className="text-[#ffffff] cursor-pointer hover:underline" onClick={() => setUserInput('help')}>help</span>, <span className="text-[#ffffff] cursor-pointer hover:underline" onClick={() => setUserInput('whoami')}>whoami</span>, <span className="text-[#ffffff] cursor-pointer hover:underline" onClick={() => setUserInput('ls skills')}>ls skills</span>, or ask anything!
               </div>

@@ -35,41 +35,6 @@ export default function AnimatedBackground() {
     resizeCanvas()
     window.addEventListener('resize', resizeCanvas)
 
-    // Create minimal grid
-    const drawGrid = () => {
-      const gridSize = 30 // Smaller spacing between grid lines
-      const gridOpacity = 0.03 // Very subtle
-      
-      ctx.strokeStyle = `rgba(255, 255, 255, ${gridOpacity})`
-      ctx.lineWidth = 1
-      
-      // Draw vertical lines
-      for (let x = 0; x < width; x += gridSize) {
-        ctx.beginPath()
-        ctx.moveTo(x, 0)
-        ctx.lineTo(x, height)
-        ctx.stroke()
-      }
-      
-      // Draw horizontal lines
-      for (let y = 0; y < height; y += gridSize) {
-        ctx.beginPath()
-        ctx.moveTo(0, y)
-        ctx.lineTo(width, y)
-        ctx.stroke()
-      }
-      
-      // Draw subtle dots at intersections
-      ctx.fillStyle = `rgba(255, 255, 255, ${gridOpacity * 2})`
-      for (let x = 0; x < width; x += gridSize) {
-        for (let y = 0; y < height; y += gridSize) {
-          ctx.beginPath()
-          ctx.arc(x, y, 1.5, 0, Math.PI * 2)
-          ctx.fill()
-        }
-      }
-    }
-
     // Create moving dots
     const movingDots: MovingDot[] = []
     const numDots = 100 // More particles for better coverage
@@ -92,9 +57,6 @@ export default function AnimatedBackground() {
       // Dark black background
       ctx.fillStyle = '#000000'
       ctx.fillRect(0, 0, width, height)
-
-      // Draw grid
-      drawGrid()
 
       // Draw and update moving dots
       movingDots.forEach(dot => {
