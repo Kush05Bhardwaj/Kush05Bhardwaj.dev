@@ -1,59 +1,70 @@
-# Portfolio Full-Stack Application
+# Kush Bhardwaj - Portfolio Website
 
-A modern, full-stack portfolio application built entirely with **Next.js 14** - featuring API routes, MongoDB integration, email functionality, and a beautiful UI.
+A modern, minimalist portfolio website built with **Next.js 14** featuring a sleek black/white/grey design, smooth animations, and dynamic content management.
 
-## 🚀 Features
+## 🎨 Design Features
 
-### Full-Stack Next.js Application
-- ⚡ **Next.js 14** with App Router
-- 🎨 Modern React with TypeScript
-- 💅 Tailwind CSS with custom design system
-- 📱 Fully responsive design
-- 🎭 Smooth animations and transitions
-- 🌙 Glassmorphic UI with dark theme
+### Visual Design
+- ⚫ **Pure Black Background** - Minimalist, professional aesthetic
+- ⚪ **White & Grey Palette** - Clean, elegant color scheme
+- ✨ **Floating Particles** - Subtle animated background elements
+- 🎭 **Smooth Animations** - Scroll reveals and transitions
+- 📱 **Fully Responsive** - Works seamlessly on all devices
+
+### Interactive Elements
+- 🎯 **Auto-Scrolling Project Carousel** - Continuous horizontal showcase
+- 💬 **Interactive Terminal** - Chat-like "About Me" section
+- 📊 **GitHub Activity Graph** - Live contribution statistics
+- � **Back-to-Top Button** - Smooth scroll navigation
+- ⌨️ **Typing Animation** - Dynamic hero section
+
+## 🚀 Tech Stack
+
+### Frontend
+- ⚡ **Next.js 14** - React framework with App Router
+- 🎨 **Tailwind CSS** - Utility-first styling
+- � **TypeScript** - Type-safe development
+- � **Framer Motion** - Animation library
+- 🎨 **Shadcn/ui** - Component library
 
 ### Backend (Next.js API Routes)
-- 🔌 RESTful API design
-- 🗄️ MongoDB database integration
-- 📧 Email system with Nodemailer
-- ✅ Input validation with Joi
-- 🛡️ Rate limiting and security
-- 🔐 JWT authentication ready
-
-### Content Sections
-- 👤 Hero with typing animation
-- 💼 Work experience timeline
-- 🎓 Education section
-- 🚀 Featured projects showcase
-- 💬 Client testimonials
-- ⚡ Tech stack with proficiency levels
-- 📬 Contact form with email notifications
+- 🗄️ **MongoDB** - Database for dynamic content
+- � **Nodemailer** - Email functionality
+- 🔐 **JWT Authentication** - Secure admin access
+- ✅ **Joi Validation** - Input validation
 
 ## 📋 Prerequisites
 
-- Node.js (v16 or higher)
-- MongoDB Atlas account (already configured)
-- npm package manager
-- Gmail account with app password (for email functionality)
+- Node.js (v18 or higher)
+- MongoDB Atlas account
+- npm or yarn package manager
+- Gmail account with app password (for contact form)
 
 ## 🛠️ Installation & Setup
 
-### 1. Install Dependencies
+### 1. Clone the Repository
 
 ```bash
-cd frontend
+git clone https://github.com/Kush05Bhardwaj/Kush05Bhardwaj.dev.git
+cd Kush05Bhardwaj.dev
+```
+
+### 2. Install Dependencies
+
+```bash
+cd src
 npm install
 ```
 
-### 2. Environment Setup
+### 3. Environment Setup
 
-Create `frontend/.env.local` with your credentials:
+Create `src/.env.local` with your credentials:
 
 ```env
 # MongoDB
 MONGODB_URI=your_mongodb_connection_string
 
-# Email (Gmail)
+# Email Configuration (Gmail)
 SMTP_HOST=smtp.gmail.com
 SMTP_PORT=587
 SMTP_USER=your_email@gmail.com
@@ -62,131 +73,159 @@ SMTP_FROM_NAME=Your Name
 SMTP_FROM_EMAIL=your_email@gmail.com
 CONTACT_EMAIL=your_email@gmail.com
 
-# Optional
+# Authentication
 JWT_SECRET=your_jwt_secret_key
 JWT_EXPIRE=30d
+
+# Environment
 NODE_ENV=development
 ```
 
-### 3. Database Setup
+### 4. Start Development Server
 
-Your MongoDB database is already populated with data! ✅
-
-### 4. Start the Application
-
-**Quick Start** (from root directory):
 ```bash
 npm run dev
 ```
 
-Or manually:
-```bash
-cd frontend
-npm run dev
-```
-
-Or use the batch file (Windows):
-```bash
-start-dev.bat
-```
-
-## 🔗 Access Points
-
-- **Portfolio Website**: http://localhost:3000
-- **API Health Check**: http://localhost:3000/api/health
-- **Skills API**: http://localhost:3000/api/skills
-- **Projects API**: http://localhost:3000/api/projects
-- **Contact API**: http://localhost:3000/api/contact
-
-## 🧪 Testing
-
-Test all API endpoints:
-```bash
-npm run test:api
-```
-Or:
-```bash
-.\test-api.ps1
-```
+The application will be available at `http://localhost:3000`
 
 ## 📁 Project Structure
 
 ```
-Kush05Bhardwaj.dev/
-├── frontend/                    # Next.js Full-Stack Application
-│   ├── app/
-│   │   ├── api/                # ⭐ Backend API Routes
-│   │   │   ├── health/         # Health check
-│   │   │   ├── skills/         # Skills CRUD
-│   │   │   ├── experience/     # Experience CRUD
-│   │   │   ├── projects/       # Projects CRUD
-│   │   │   ├── testimonials/   # Testimonials CRUD
-│   │   │   └── contact/        # Contact form + Email
-│   │   ├── globals.css         # Global styles
-│   │   ├── layout.tsx          # Root layout
-│   │   └── page.tsx            # Homepage
-│   ├── components/             # React components
-│   │   ├── hero.tsx           # Hero section
-│   │   ├── tech-stack.tsx     # Skills section
-│   │   ├── best-works.tsx     # Projects showcase
-│   │   ├── work-experience.tsx # Experience timeline
-│   │   ├── education.tsx      # Education section
-│   │   ├── testimonials.tsx   # Testimonials
-│   │   ├── contact.tsx        # Contact form
-│   │   └── ui/                # shadcn/ui components
-│   ├── models/                 # ⭐ Mongoose Models
-│   │   ├── Skill.ts
-│   │   ├── Experience.ts
-│   │   ├── Project.ts
-│   │   ├── Testimonial.ts
-│   │   └── Contact.ts
-│   ├── lib/                    # Utilities
-│   │   ├── mongodb.ts         # ⭐ DB connection
-│   │   ├── email.ts           # ⭐ Email utilities
-│   │   └── api/               # API client
-│   ├── public/                 # Static assets
-│   ├── package.json            # All dependencies
-│   └── .env.local              # Environment variables
-├── MIGRATION_GUIDE.md          # Migration documentation
-├── MIGRATION_COMPLETE.md       # Migration summary
-├── QUICK_START.md              # Quick start guide
-├── test-api.ps1                # API testing script
-├── start-dev.bat               # Quick start (Windows)
-├── package.json                # Root scripts
-└── README.md                   # This file
+src/
+├── app/                    # Next.js App Router
+│   ├── api/               # API routes
+│   │   ├── auth/         # Authentication
+│   │   ├── contact/      # Contact form
+│   │   ├── projects/     # Projects CRUD
+│   │   ├── skills/       # Skills management
+│   │   └── testimonials/ # Testimonials
+│   ├── admin/            # Admin dashboard
+│   └── page.tsx          # Main page
+├── components/           # React components
+│   ├── ui/              # Shadcn UI components
+│   ├── hero.tsx         # Hero section
+│   ├── about.tsx        # Terminal-style about
+│   ├── tech-stack.tsx   # Skills showcase
+│   ├── best-works.tsx   # Project carousel
+│   ├── github-contributions.tsx
+│   └── ...
+├── lib/                 # Utilities
+│   ├── mongodb.ts       # Database connection
+│   ├── email.ts         # Email service
+│   └── auth.ts          # Authentication
+├── models/              # MongoDB schemas
+└── public/              # Static assets
 ```
 
-## 🛠️ Tech Stack
+## 🎯 Key Features Breakdown
 
-### Frontend
-- **Framework**: Next.js 14 (App Router)
-- **UI Library**: React 18 with TypeScript
-- **Styling**: Tailwind CSS
-- **Components**: shadcn/ui (Radix UI)
-- **Icons**: Lucide React
-- **Animations**: Framer Motion concepts
+### 1. Hero Section
+- Animated typing effect with grey gradient
+- Professional introduction
+- CTA buttons for contact and CV download
 
-### Backend (Next.js API Routes)
-- **Runtime**: Node.js
-- **Database**: MongoDB with Mongoose
-- **Email**: Nodemailer (Gmail SMTP)
-- **Validation**: Joi
-- **Security**: Rate limiting, input validation
+### 2. About Me (Terminal)
+- Interactive chat-style interface
+- Command-based navigation
+- Predefined responses for common questions
 
-### Deployment
-- **Platform**: Vercel (recommended)
-- **Database**: MongoDB Atlas
-- **Email**: Gmail SMTP
+### 3. Tech Stack
+- Horizontal scrolling display
+- 10+ technologies with icons
+- Hover effects and animations
+
+### 4. GitHub Activity
+- Live contribution graph
+- Fetches data from GitHub
+- Displays coding consistency
+
+### 5. Projects Carousel
+- Auto-scrolling showcase
+- Pause on hover
+- Manual navigation arrows
+- Centered layout with partial side views
+
+### 6. Work Experience & Education
+- Timeline layout
+- Company/institution details
+- Achievements and responsibilities
+
+### 7. Testimonials
+- Clean, borderless design
+- Client feedback display
+- Professional presentation
+
+### 8. Contact Form
+- Email integration
+- Form validation
+- Success/error notifications
+
+## 🔧 Available Scripts
+
+```bash
+# Development
+npm run dev          # Start development server
+
+# Production
+npm run build        # Build for production
+npm run start        # Start production server
+
+# Linting
+npm run lint         # Run ESLint
+```
+
+## 🎨 Customization
+
+### Update Colors
+The entire color scheme is black/white/grey. To modify:
+- Edit Tailwind config: `tailwind.config.ts`
+- Update component styles in respective files
+
+### Add Projects
+1. Go to admin panel: `/admin/projects`
+2. Add new project with details
+3. Upload project image
+4. Automatically appears in carousel
+
+### Modify Content
+- **Hero Text**: Edit `src/components/hero.tsx`
+- **About Responses**: Edit `src/components/about.tsx`
+- **Tech Stack**: Edit `src/components/tech-stack.tsx`
+- **GitHub Username**: Edit `src/components/github-contributions.tsx`
+
+## 🚀 Deployment
+
+### Vercel (Recommended)
+```bash
+# Install Vercel CLI
+npm i -g vercel
+
+# Deploy
+vercel
+```
+
+### Environment Variables
+Add all `.env.local` variables to your hosting platform's environment settings.
+
+## 📝 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 👤 Author
+
+**Kush Bhardwaj**
+- GitHub: [@Kush05Bhardwaj](https://github.com/Kush05Bhardwaj)
+- Portfolio: [Your Live URL]
+
+## 🙏 Acknowledgments
+
+- Built with Next.js 14
+- UI components from Shadcn/ui
+- Icons from Lucide React
+- Animations inspired by modern web design trends
 
 ---
 
-Built with ❤️ by **Kush Bhardwaj**
-
-- ✨ Modern, responsive design
-- 🎨 Glassmorphic UI with dark theme
-- 🚀 Server-side rendering (SSR)
-- 📧 Email notifications & auto-reply
-- 🔒 Secure with rate limiting
-- 📱 Mobile-first approach 
-
+⭐ **Star this repo if you find it helpful!**
 

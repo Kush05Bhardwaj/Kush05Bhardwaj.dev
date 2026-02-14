@@ -55,7 +55,7 @@ export default function Testimonials() {
           >
             {testimonials.map((testimonial) => (
               <div key={testimonial.id} className="w-full flex-shrink-0 px-4">
-                <Card className="glass-card mx-auto max-w-2xl rounded-lg group transition-all duration-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#ffffff]/20">
+                <Card className="mx-auto max-w-2xl rounded-lg group transition-all duration-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#ffffff]/20 bg-transparent border-0">
                   <CardContent className="p-8">
                     <div className="flex items-center gap-3 mb-6">
                       <AvatarWithRings 

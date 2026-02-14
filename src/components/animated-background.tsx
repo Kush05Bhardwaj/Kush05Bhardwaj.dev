@@ -54,6 +54,8 @@ export default function AnimatedBackground() {
     let animationId: number
     
     function animate() {
+      if (!ctx) return // Add null check
+
       // Dark black background
       ctx.fillStyle = '#000000'
       ctx.fillRect(0, 0, width, height)
