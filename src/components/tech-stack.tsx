@@ -48,37 +48,55 @@ export default function TechStack() {
         </h2>
       </div>
 
-      <div className="flex justify-center">
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-6 sm:gap-8 max-w-4xl justify-items-center">
-        {technologies.map((tech, index) => {
-          const { Icon } = tech
-          return (
-            <div
-              key={tech.name}
-              className="group cursor-pointer flex flex-col items-center"
-              style={{
-                transitionDelay: `${index * 0.1}s`,
-              }}
-            >
-              <div 
-                className="relative flex items-center justify-center rounded-full glass-card border border-[#1a1a1a]/50 group-hover:border-[#ffffff] transition-all duration-300 group-hover:scale-110 w-16 h-16 sm:w-20 sm:h-20"
-              >
-                <Icon 
-                  className="w-8 h-8 sm:w-10 sm:h-10"
-                  style={{ 
-                    color: tech.color,
-                  }} 
-                />
-              </div>
-              
-              <span className="text-xs sm:text-sm font-medium text-[#a5a5c8] group-hover:text-[#cccccc] transition-colors duration-300 text-center mt-2">
-                {tech.name}
-              </span>
-            </div>
-          )
-        })}
+      {/* Horizontal scrolling container */}
+      <div className="relative w-full">
+        {/* Gradient overlays on edges */}
+        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
+        
+        {/* Scrolling wrapper */}
+        <div className="overflow-x-auto scrollbar-hide">
+          <div className="flex gap-8 px-8 py-4 justify-center min-w-max">
+            {technologies.map((tech, index) => {
+              const { Icon } = tech
+              return (
+                <div
+                  key={tech.name}
+                  className="group cursor-pointer flex flex-col items-center flex-shrink-0"
+                  style={{
+                    transitionDelay: `${index * 0.1}s`,
+                  }}
+                >
+                  <div 
+                    className="relative flex items-center justify-center rounded-full glass-card border border-[#1a1a1a]/50 group-hover:border-[#ffffff] transition-all duration-300 group-hover:scale-110 w-20 h-20"
+                  >
+                    <Icon 
+                      className="w-10 h-10"
+                      style={{ 
+                        color: tech.color,
+                      }} 
+                    />
+                  </div>
+                  
+                  <span className="text-xs sm:text-sm font-medium text-[#a5a5c8] group-hover:text-[#cccccc] transition-colors duration-300 text-center mt-2">
+                    {tech.name}
+                  </span>
+                </div>
+              )
+            })}
+          </div>
         </div>
       </div>
+
+      <style jsx>{`
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
     </section>
   )
 }

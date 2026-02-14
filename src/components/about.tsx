@@ -157,7 +157,7 @@ export default function About() {
   }
 
   return (
-    <section id="about" className="py-16">
+    <section id="about" className="py-16 pb-2">
       <div className="flex items-center justify-center gap-2 mb-12 animate-fade-in-up">
         <Terminal className="text-[#ffffff]" />
         <h2 className="text-3xl font-bold">
