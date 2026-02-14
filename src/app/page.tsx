@@ -4,6 +4,7 @@ import { useEffect, useState, useRef } from "react"
 import Navbar from "@/components/navbar"
 import Hero from "@/components/hero"
 import TechStack from "@/components/tech-stack"
+import GitHubContributions from "@/components/github-contributions"
 import BestWorks from "@/components/best-works"
 import WorkExperience from "@/components/work-experience"
 import Education from "@/components/education"
@@ -73,6 +74,7 @@ export default function Home() {
           {[
             { Component: About, delay: 0.1 },
             { Component: TechStack, delay: 0.15 },
+            { Component: GitHubContributions, delay: 0.18 },
             { Component: BestWorks, delay: 0.2 },
             { Component: Testimonials, delay: 0.25 },
             { Component: WorkExperience, delay: 0.3 },
