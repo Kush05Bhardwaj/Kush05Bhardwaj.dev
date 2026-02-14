@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight, Code, ChevronLeft, ChevronRight } from "lucide-react"
@@ -59,25 +59,58 @@ const projects = [
 ]
 
 export default function BestWorks() {
-  const scrollContainerRef = useRef<HTMLDivElement>(null)
+  const [currentIndex, setCurrentIndex] = useState(projects.length) // Start at middle set
   const [isPaused, setIsPaused] = useState(false)
+  const [isTransitioning, setIsTransitioning] = useState(true)
+
+  // Triple the projects for infinite loop
+  const tripleProjects = [...projects, ...projects, ...projects]
+
+  // Auto-scroll effect
+  useEffect(() => {
+    if (!isPaused) {
+      const interval = setInterval(() => {
+        setCurrentIndex((prev) => prev + 1)
+      }, 3000) // Change slide every 3 seconds
+      
+      return () => clearInterval(interval)
+    }
+  }, [isPaused])
+
+  // Reset position when reaching the end of second set for seamless loop
+  useEffect(() => {
+    if (currentIndex >= projects.length * 2) {
+      // When we reach the end of the second copy, jump back to the middle copy
+      const timeout = setTimeout(() => {
+        setIsTransitioning(false)
+        setCurrentIndex(projects.length)
+        requestAnimationFrame(() => {
+          setTimeout(() => {
+            setIsTransitioning(true)
+          }, 50)
+        })
+      }, 500)
+      return () => clearTimeout(timeout)
+    } else if (currentIndex < projects.length && currentIndex > 0) {
+      // When scrolling backwards past the middle copy, jump to end of middle copy
+      const timeout = setTimeout(() => {
+        setIsTransitioning(false)
+        setCurrentIndex(projects.length + currentIndex)
+        requestAnimationFrame(() => {
+          setTimeout(() => {
+            setIsTransitioning(true)
+          }, 50)
+        })
+      }, 500)
+      return () => clearTimeout(timeout)
+    }
+  }, [currentIndex])
 
   const scroll = (direction: 'left' | 'right') => {
-    if (scrollContainerRef.current) {
-      const scrollAmount = 580 // card width (560px) + gap (6px) + some extra
-      const currentScroll = scrollContainerRef.current.scrollLeft
-      
-      if (direction === 'left') {
-        scrollContainerRef.current.scrollTo({
-          left: currentScroll - scrollAmount,
-          behavior: 'smooth'
-        })
-      } else {
-        scrollContainerRef.current.scrollTo({
-          left: currentScroll + scrollAmount,
-          behavior: 'smooth'
-        })
-      }
+    if (direction === 'left') {
+      setCurrentIndex((prev) => prev - 1)
+    } else {
+      setCurrentIndex((prev) => prev + 1)
     }
   }
 
@@ -117,14 +150,16 @@ export default function BestWorks() {
         
         {/* Scrolling wrapper - offset to show partial cards on sides */}
         <div 
-          ref={scrollContainerRef}
-          className={`flex gap-6 will-change-transform overflow-x-auto scrollbar-hide ${!isPaused ? 'animate-scroll-seamless' : ''}`}
-          style={{ paddingLeft: 'calc(50vw - 280px)', scrollbarWidth: 'none' }}
+          className={`flex gap-6 will-change-transform ${isTransitioning ? 'transition-transform duration-500 ease-out' : ''}`}
+          style={{ 
+            paddingLeft: 'calc(50vw - 280px)',
+            transform: `translateX(-${currentIndex * 584}px)` // card width (560px) + gap (24px)
+          }}
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
-          {/* Triple the projects array for truly seamless infinite loop */}
-          {[...projects, ...projects, ...projects].map((project, index) => {
+          {/* Render triple projects for infinite loop */}
+          {tripleProjects.map((project, index) => {
             const projectLink = project.liveUrl || project.githubUrl || "#"
             const isExternal = projectLink.startsWith("http")
 
@@ -249,30 +284,6 @@ export default function BestWorks() {
           </Link>
         </Button>
       </div>
-
-      <style jsx>{`
-        @keyframes scroll-seamless {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(calc(-100% / 3));
-          }
-        }
-
-        .animate-scroll-seamless {
-          animation: scroll-seamless 30s linear infinite;
-        }
-
-        .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-      `}</style>
     </section>
   )
 }
