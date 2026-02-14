@@ -1,4 +1,4 @@
-# Kush Bhardwaj - Portfolio Website
+# Kushagra Bhardwaj - Portfolio Website
 
 A modern, minimalist portfolio website built with **Next.js 14** featuring a sleek black/white/grey design, smooth animations, and dynamic content management.
 
