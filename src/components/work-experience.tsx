@@ -8,16 +8,6 @@ import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 const experiences = [
   {
     id: "1",
-    company: "ELite Coders Winter of Code '26",
-    position: "Contributor",
-    logo: "/elite.jpg",
-    startDate: "2026-01-01",
-    endDate: "present",
-    current: true,
-    description: "I participated as a contributor in ELite Coders Winter of Code '26, contributing to open source projects and collaborating with other developers.",
-  },
-  {
-    id: "2",
     company: "Open Source Community",
     position: "Contributor",
     logo: "/white.jpg",
@@ -25,6 +15,16 @@ const experiences = [
     endDate: "present",
     current: true,
     description: "I am a contributor to various open source projects. I enjoy collaborating with other developers and learning new technologies.",
+  },
+  {
+    id: "2",
+    company: "ELite Coders Winter of Code '26",
+    position: "Contributor",
+    logo: "/elite.jpg",
+    startDate: "2026-01-01",
+    endDate: "2026-02-15",
+    current: true,
+    description: "I participated as a contributor in ELite Coders Winter of Code '26, contributing to open source projects and collaborating with other developers.",
   },
   {
     id: "2",
