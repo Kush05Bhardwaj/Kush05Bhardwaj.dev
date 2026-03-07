@@ -37,7 +37,7 @@ export default function AnimatedBackground() {
 
     // Create moving dots
     const movingDots: MovingDot[] = []
-    const numDots = 100 // More particles for better coverage
+    const numDots = 160 // More particles for better starry coverage
 
     for (let i = 0; i < numDots; i++) {
       movingDots.push({
@@ -56,8 +56,8 @@ export default function AnimatedBackground() {
     function animate() {
       if (!ctx) return // Add null check
 
-      // Dark black background
-      ctx.fillStyle = '#000000'
+      // Semi-transparent black for trail effect (starry fade)
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.3)'
       ctx.fillRect(0, 0, width, height)
 
       // Draw and update moving dots
@@ -77,24 +77,25 @@ export default function AnimatedBackground() {
         // Draw glow - small with more brightness
         const gradient = ctx.createRadialGradient(
           dot.x, dot.y, 0,
-          dot.x, dot.y, dot.size * 4
+          dot.x, dot.y, dot.size * 10
         )
-        gradient.addColorStop(0, `rgba(255, 255, 255, 0.35)`)
-        gradient.addColorStop(0.4, `rgba(255, 255, 255, 0.15)`)
-        gradient.addColorStop(0.7, `rgba(255, 255, 255, 0.05)`)
+        gradient.addColorStop(0, `rgba(255, 255, 255, 1)`)
+        gradient.addColorStop(0.2, `rgba(255, 255, 255, 0.9)`)
+        gradient.addColorStop(0.5, `rgba(255, 255, 255, 0.5)`)
+        gradient.addColorStop(0.8, `rgba(255, 255, 255, 0.15)`)
         gradient.addColorStop(1, `rgba(255, 255, 255, 0)`)
 
         ctx.beginPath()
-        ctx.arc(dot.x, dot.y, dot.size * 4, 0, Math.PI * 2)
+        ctx.arc(dot.x, dot.y, dot.size * 10, 0, Math.PI * 2)
         ctx.fillStyle = gradient
         ctx.fill()
 
         // Draw core dot - tiny and bright
         ctx.beginPath()
-        ctx.arc(dot.x, dot.y, dot.size, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(255, 255, 255, 0.6)`
-        ctx.shadowBlur = 3
-        ctx.shadowColor = `rgba(255, 255, 255, 0.4)`
+        ctx.arc(dot.x, dot.y, dot.size * 1.8, 0, Math.PI * 2)
+        ctx.fillStyle = `rgba(255, 255, 255, 1)`
+        ctx.shadowBlur = 20
+        ctx.shadowColor = `rgba(255, 255, 255, 1)`
         ctx.fill()
         ctx.shadowBlur = 0
       })
@@ -114,7 +115,7 @@ export default function AnimatedBackground() {
     <canvas 
       ref={canvasRef} 
       className="w-full h-full"
-      style={{ background: '#000000' }}
+      style={{ background: 'transparent', opacity: 0.45 }}
     />
   )
 } 
