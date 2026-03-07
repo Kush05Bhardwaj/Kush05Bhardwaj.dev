@@ -90,7 +90,7 @@ export const otherProjects: Project[] = [
   {
     id: "7",
     title: "ECL Parcel",
-    shortDescription: "Professional logistics & courier services website with a clean modern UI.",
+    shortDescription: "ECL Parcel is a logistics and parcel tracking website offering services like shipment tracking, contact forms, and information about various shipping methods.",
     images: ["/ecl.png"],
     liveUrl: "https://www.eclparcel.in",
     technologies: ["nextjs", "react", "tailwindcss", "shadcn", "lucide"],
