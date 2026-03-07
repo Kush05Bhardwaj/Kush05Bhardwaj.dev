@@ -18,7 +18,7 @@ export default function Hero() {
   const roles = [
     "Aspiring AI-Software Developer",
     "MERN Stack Developer",
-    "Tech Enthusiast"
+    "AI/ML Enthusiast"
   ]
 
   useEffect(() => {
@@ -74,6 +74,15 @@ export default function Hero() {
             Building cool stuff with AI, Python, and Web Tech.
             Always learning, always experimenting.
           </p>
+
+          {/* Availability Badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-sm text-[#a5a5c8]">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500/60 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
+            </span>
+            <span>Currently looking for a <strong className="text-[#e9e9f5]">Summer Internship</strong> (June – July 2026) · Open to <strong className="text-[#e9e9f5]">AI / Backend / Full-Stack</strong> roles</span>
+          </div>
 
           {/* CTA Buttons */}
           <div className="flex flex-wrap gap-4 pt-4">
