@@ -115,7 +115,7 @@ export default function AnimatedBackground() {
     <canvas 
       ref={canvasRef} 
       className="w-full h-full"
-      style={{ background: 'transparent', opacity: 0.45 }}
+      style={{ background: 'transparent', opacity: 0.65 }}
     />
   )
 } 
