@@ -71,7 +71,7 @@ export default function Hero() {
 
           {/* Description */}
           <p className="text-lg text-[#a5a5c8] max-w-xl leading-relaxed">
-            Building cool stuff with AI, Python, and Web Tech.
+            Full-Stack Developer building AI-powered applications and developer tools.
             Always learning, always experimenting.
           </p>
 
@@ -81,7 +81,7 @@ export default function Hero() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500/60 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
             </span>
-            <span>Currently looking for a <strong className="text-[#e9e9f5]">Summer Internship</strong> (June – July 2026) · Open to <strong className="text-[#e9e9f5]">AI / Backend / Full-Stack</strong> roles</span>
+            <span>Currently looking for a <strong className="text-[#e9e9f5]">Summer Internship</strong> · Open to <strong className="text-[#e9e9f5]">AI / Backend / Full-Stack</strong> roles</span>
           </div>
 
           {/* CTA Buttons */}
