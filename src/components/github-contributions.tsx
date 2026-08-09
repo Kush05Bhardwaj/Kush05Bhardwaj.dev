@@ -1,47 +1,45 @@
 "use client"
 
-import { Activity } from "lucide-react"
+import SectionHeader from "@/components/section-header"
+import { ArrowUpRight } from "lucide-react"
 
 export default function GitHubContributions() {
-  const githubUsername = "Kush05Bhardwaj" // Replace with your GitHub username
+  const githubUsername = "Kush05Bhardwaj"
 
   return (
-    <section id="github-activity" className="py-16">
-      <div className="flex items-center justify-center gap-2 mb-12">
-        <Activity className="text-white" />
-        <h2 className="text-3xl font-bold">
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300">
-            GitHub Activity
-          </span>
-        </h2>
-      </div>
+    <section id="github-activity">
+      <SectionHeader
+        number="03"
+        label="PROOF OF WORK"
+        title="GitHub Activity"
+        description="Consistent building, experimenting, and shipping."
+        aside="OPEN SOURCE"
+      />
 
-      <div className="flex flex-col items-center">
-        {/* GitHub Contribution Graph */}
-        <div className="w-full max-w-5xl bg-zinc-900/30 rounded-xl p-8 border border-white/10 hover:border-white/20 transition-all duration-300">
-          <div className="flex items-center justify-between mb-6">
-            <a
-              href={`https://github.com/${githubUsername}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-gray-400 hover:text-white transition-colors"
-            >
-              View on GitHub →
-            </a>
-          </div>
-          
-          {/* GitHub Contribution Chart */}
-          <div className="w-full overflow-x-auto">
-            <img
-              src={`https://ghchart.rshah.org/${githubUsername}`}
-              alt="GitHub Contribution Chart"
-              className="w-full rounded-lg"
-              style={{ 
-                filter: 'invert(1) hue-rotate(180deg) brightness(0.9)',
-                minWidth: '700px'
-              }}
-            />
-          </div>
+      <div className="max-w-5xl">
+        {/* Contribution chart */}
+        <div className="w-full overflow-x-auto border border-border/40 rounded-lg p-4 sm:p-6">
+          <img
+            src={`https://ghchart.rshah.org/${githubUsername}`}
+            alt="GitHub Contribution Chart"
+            className="w-full rounded"
+            style={{
+              filter: "invert(1) hue-rotate(180deg) brightness(0.9)",
+              minWidth: "600px",
+            }}
+          />
+        </div>
+
+        {/* Footer link */}
+        <div className="mt-4 flex justify-end">
+          <a
+            href={`https://github.com/${githubUsername}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-link inline-flex items-center gap-1.5 font-mono text-xs tracking-[.12em] text-muted-foreground hover:text-foreground transition-colors"
+          >
+            VIEW PROFILE <ArrowUpRight className="link-arrow h-3.5 w-3.5" />
+          </a>
         </div>
       </div>
     </section>

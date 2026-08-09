@@ -2,131 +2,125 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowRight, Star } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { ArrowUpRight, Github } from "lucide-react"
+import SectionHeader from "@/components/section-header"
 import { featuredProjects, techLabel } from "@/lib/projects-data"
+
+// Map each project to a concise editorial category string
+const projectCategory: Record<string, string> = {
+  "1": "AI · PYTHON · LLM · DESKTOP",
+  "2": "AI · SECURITY · PYTHON · ML",
+  "3": "AI · PYTHON · LLM · WEB",
+  "4": "WEB · NEXT.JS · MONGODB",
+}
 
 export default function BestWorks() {
   return (
-    <section id="projects" className="py-16">
-      {/* Heading */}
-      <div className="flex items-center justify-center gap-2 mb-4">
-        <Star className="text-[#ffffff] w-5 h-5" />
-        <h2 className="text-3xl font-bold">
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ffffff] to-[#cccccc]">
-            Featured Projects
-          </span>
-        </h2>
-      </div>
-      <p className="text-center text-[#a5a5c8] text-sm mb-12">Hand-picked work I'm most proud of</p>
+    <section id="projects" className="editorial-major" data-num="02">
+      <SectionHeader
+        number="02"
+        label="SELECTED WORK"
+        title="Selected Work"
+        description="A selection of software and AI projects built to solve practical problems."
+        aside={`${featuredProjects.length} PROJECTS`}
+      />
 
-      {/* 2x2 Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-5xl mx-auto px-4">
-        {featuredProjects.map((project) => {
-          const primaryLink = project.liveUrl || project.githubUrl || "#"
-          const hasImage = project.images.length > 0 && project.images[0]
-
+      <div className="project-showcase space-y-0">
+        {featuredProjects.map((project, index) => {
+          const hasImage = Boolean(project.images.length && project.images[0])
+          const isFirst  = index === 0
           return (
-            <div
+            <article
               key={project.id}
-              className="flex flex-col bg-zinc-900/50 rounded-xl overflow-hidden border border-white/5 hover:border-white/20 transition-all duration-300 group hover:-translate-y-1"
+              className={`showcase-project ${index % 2 ? "md:flex-row-reverse" : ""} ${isFirst ? "is-featured" : ""}`}
             >
-              {/* Image / Placeholder */}
-              <div className="relative h-[180px] w-full overflow-hidden bg-zinc-950">
+              {/* Preview */}
+              <div className="project-preview">
                 {hasImage ? (
                   <Image
                     src={project.images[0]}
-                    alt={project.title}
+                    alt={`${project.title} preview`}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="object-cover"
                   />
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center">
-                    <span className="text-5xl opacity-20 select-none">🔒</span>
+                  <div className="flex h-full items-center justify-center font-mono text-sm text-muted-foreground">
+                    Preview unavailable
                   </div>
                 )}
               </div>
 
-              {/* Content */}
-              <div className="flex flex-col flex-1 p-5 space-y-3">
-                <h3 className="text-lg font-bold text-white">{project.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed flex-1">{project.shortDescription}</p>
+              {/* Copy */}
+              <div className="project-copy">
+                {/* Project identifier */}
+                <p className="font-mono text-[.62rem] tracking-[.16em] text-muted-foreground mb-1">
+                  {isFirst ? "FEATURED — " : ""}PROJECT {String(index + 1).padStart(2, "0")}
+                </p>
 
-                {/* Tech tags */}
-                <div className="flex flex-wrap gap-1.5">
-                  {project.technologies.slice(0, 5).map((tech) => (
+                <h3 className="mt-2 text-2xl font-semibold text-foreground sm:text-3xl">
+                  {project.title}
+                </h3>
+
+                {/* Tech category label */}
+                {projectCategory[project.id] && (
+                  <p className="mt-2 font-mono text-[.62rem] tracking-[.12em] text-cyan-400/80">
+                    {projectCategory[project.id]}
+                  </p>
+                )}
+
+                <p className="mt-3 max-w-xl leading-7 text-muted-foreground text-sm sm:text-base">
+                  {project.shortDescription}
+                </p>
+
+                {/* Technology pills */}
+                <div className="mt-4 flex flex-wrap gap-1.5">
+                  {project.technologies.slice(0, 5).map(tech => (
                     <span
                       key={tech}
-                      className="px-2 py-0.5 rounded-full text-xs font-medium bg-zinc-800 text-gray-300 border border-white/10"
+                      className="rounded-full bg-secondary/70 px-2.5 py-0.5 text-xs text-secondary-foreground"
                     >
                       {techLabel[tech] ?? tech}
                     </span>
                   ))}
                 </div>
 
-                {/* Buttons */}
-                <div className="flex gap-2 pt-1">
-                  {project.liveUrl && (
-                    <Link
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 px-3 py-2 rounded-lg bg-white text-black font-medium hover:bg-gray-200 transition-all duration-300 text-center text-sm flex items-center justify-center gap-1.5"
-                    >
-                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                      </svg>
-                      Live
-                    </Link>
-                  )}
+                {/* Links */}
+                <div className="mt-5 flex flex-wrap gap-5 text-sm font-medium">
                   {project.githubUrl && (
                     <Link
+                      className="inline-link inline-flex items-center gap-1.5 text-foreground"
                       href={project.githubUrl}
                       target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 px-3 py-2 rounded-lg bg-zinc-800 text-white font-medium border border-white/20 hover:border-white/40 hover:bg-zinc-700 transition-all duration-300 text-center text-sm flex items-center justify-center gap-1.5"
+                      rel="noreferrer"
                     >
-                      <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
-                        <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z" />
-                      </svg>
-                      Repo
+                      <Github className="h-4 w-4" /> Source <ArrowUpRight className="link-arrow h-4 w-4" />
+                    </Link>
+                  )}
+                  {project.liveUrl && (
+                    <Link
+                      className="inline-link inline-flex items-center gap-1.5 text-cyan-300"
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Live demo <ArrowUpRight className="link-arrow h-4 w-4" />
                     </Link>
                   )}
                 </div>
               </div>
-            </div>
+            </article>
           )
         })}
       </div>
 
-      {/* Bottom buttons */}
-      <div className="flex flex-wrap items-center justify-center gap-4 mt-14">
-        <Button
-          asChild
-          variant="outline"
-          className="border-white/15 text-[#e9e9f5] hover:bg-white/5 hover:border-white/30 transition-all duration-300 hover:scale-105"
+      <div className="mt-8">
+        <Link
+          href="/projects"
+          className="inline-link inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground"
         >
-          <Link href="/projects">
-            Explore Other Projects <ArrowRight className="ml-2 h-4 w-4" />
-          </Link>
-        </Button>
-
-        <Button
-          asChild
-          className="bg-[#ffffff] hover:bg-[#e5e5e5] text-black shadow-lg shadow-[#ffffff]/20 hover:shadow-[#ffffff]/30 transition-all duration-300 hover:scale-105"
-        >
-          <Link
-            href="https://github.com/Kush05Bhardwaj?tab=repositories"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            View All Projects <ArrowRight className="ml-2 h-4 w-4" />
-          </Link>
-        </Button>
+          Explore all projects <ArrowUpRight className="link-arrow h-4 w-4" />
+        </Link>
       </div>
     </section>
   )
 }
-
-
-

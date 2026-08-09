@@ -1,95 +1,117 @@
 "use client"
 
-import { Card, CardContent } from "@/components/ui/card"
-import { Briefcase } from "lucide-react"
-import { useScrollReveal } from "@/hooks/use-scroll-reveal"
+import SectionHeader from "@/components/section-header"
 
-// Static experience data
 const experiences = [
   {
-    id: "1",
-    company: "Open Source Community",
-    position: "Contributor",
-    logo: "/white.jpg",
-    startDate: "2025-12-05",
-    endDate: "present",
-    current: true,
-    description: "I am a contributor to various open source projects. I enjoy collaborating with other developers and learning new technologies.",
+    id:          "projexa",
+    company:     "Projexa AI",
+    position:    "Full Stack Developer",
+    logo:        "/projexa.jpeg",
+    startDate:   "2026-06-01",
+    endDate:     undefined as string | undefined,
+    current:     true,
+    description: "Developing and managing software solutions, including a project management platform and an internship management system, serving 5,000+ users. Working across frontend, backend, database integration, and feature development to streamline project and internship workflows.",
   },
   {
-    id: "2",
-    company: "ELite Coders Winter of Code '26",
-    position: "Contributor",
-    logo: "/elite.jpg",
-    startDate: "2026-01-01",
-    endDate: "2026-02-15",
+    id: "eozka",
+    company: "eOzka",
+    position: "Software Engineer",
+    logo: "/eozka.svg",
+    startDate: "2026-06-01",
+    endDate: undefined as string | undefined,
     current: true,
-    description: "I participated as a contributor in ELite Coders Winter of Code '26, contributing to open source projects and collaborating with other developers.",
+    description: "Engineering scalable web applications and software infrastructure at eOzka, contributing to full-stack development, backend systems, database architecture, and production-ready solutions across the company's technology ecosystem."
+  },
+
+  {
+    id:          "osc",
+    company:     "Open Source Community",
+    position:    "Open Source Contributor",
+    logo:        "/white.jpg",
+    startDate:   "2025-12-05",
+    endDate:     undefined as string | undefined,
+    current:     true,
+    description: "Contributing to open-source projects — collaborating with developers, reviewing code, and building utilities that ship to real users.",
   },
   {
-    id: "2",
-    company: "Cognifyz Technologies",
-    position: "Web Developer Intern",
-    logo: "/cognifyz-1.png",
-    startDate: "2025-05-17",
-    endDate: "2025-06-17",
-    current: true,
-    description: "I worked as a Web Dev Intern at Cognifyz Technologies.",
+    id:          "ecwoc",
+    company:     "ELite Coders Winter of Code '26",
+    position:    "Open Source Contributor",
+    logo:        "/elite.jpg",
+    startDate:   "2026-01-01",
+    endDate:     "2026-02-15",
+    current:     false,
+    description: "Participated as a contributor in the programme, shipping features and bug fixes across the project roster.",
   },
   {
-    id: "3",
-    company: "Fiverr",
-    position: "Freelancer",
-    logo: "/fiverr.png",
-    startDate: "2024-04-01",
-    endDate: undefined,
-    current: true,
-    description: "I am a freelancer on Fiverr. I provide services like web development and web design.",
+    id:          "cognifyz",
+    company:     "Cognifyz Technologies",
+    position:    "Web Developer Intern",
+    logo:        "/cognifyz-1.png",
+    startDate:   "2025-05-17",
+    endDate:     "2025-06-17",
+    current:     false,
+    description: "Built and maintained web interfaces using React and Node.js. Worked with the product team on client-facing features during a one-month internship.",
+  },
+  {
+    id:          "fiverr",
+    company:     "Fiverr",
+    position:    "Freelance Web Developer",
+    logo:        "/fiverr.png",
+    startDate:   "2024-04-01",
+    endDate:     undefined as string | undefined,
+    current:     true,
+    description: "Delivering web development services for clients — landing pages, full-stack applications, and UI work on a project basis.",
   },
 ]
 
+function formatDate(dateString: string) {
+  return new Date(dateString).toLocaleDateString("en-US", { month: "short", year: "numeric" })
+}
+
 export default function WorkExperience() {
-  const { ref, isVisible } = useScrollReveal()
-
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString)
-    return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
-  }
-
   return (
-    <section id="experience" className="py-16">
-      <div className="flex items-center justify-center gap-2 mb-12">
-        <Briefcase className="text-[#ffffff]" />
-        <h2 className="text-3xl font-bold">
-          My prior <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ffffff] to-[#cccccc]">Work Experience</span>
-        </h2>
-      </div>
+    <section id="experience" className="editorial-major" data-num="04">
+      <SectionHeader
+        number="04"
+        label="EXPERIENCE"
+        title="Work Experience"
+        description="Internship, freelance, and open-source contributions."
+        aside="SELECTED ROLES"
+      />
 
-      <div className="space-y-6">
+      <div className="timeline space-y-0">
         {experiences.map((exp, index) => (
-          <Card
-            key={exp.id}
-            className="glass-card rounded-lg group transition-all duration-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#ffffff]/20"
-            style={{ animationDelay: `${0.1 + index * 0.1}s` }}
+          <div
+            key={`${exp.id}-${index}`}
+            className="timeline-item pl-8 pb-6 sm:pl-10 group hover:translate-x-0.5 transition-transform duration-300"
           >
-            <CardContent className="p-6">
-              <div className="flex justify-between items-start">
-                <div className="flex items-center gap-3">
-                  <img
-                    src={exp.logo || "/placeholder.svg"}
-                    alt={`${exp.company} logo`}
-                    className="w-8 h-8 rounded-full transition-transform duration-300 group-hover:scale-110"
-                  />
-                  <h3 className="font-medium text-[#e9e9f5] group-hover:text-[#cccccc] transition-colors duration-300">{exp.company}</h3>
-                </div>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ffffff] to-[#cccccc]">{exp.position}</span>
-              </div>
-              <p className="mt-4 text-[#e9e9f5]">{exp.description}</p>
-              <p className="mt-2 text-sm text-[#a5a5c8]">
-                {formatDate(exp.startDate)} - {exp.current ? "Present" : (exp.endDate ? formatDate(exp.endDate) : "N/A")}
-              </p>
-            </CardContent>
-          </Card>
+            {/* Date range */}
+            <p className="font-mono text-[.62rem] tracking-[.13em] text-muted-foreground mb-1.5">
+              {formatDate(exp.startDate)} — {exp.current ? "PRESENT" : (exp.endDate ? formatDate(exp.endDate) : "")}
+            </p>
+
+            {/* Role + company */}
+            <div className="flex flex-wrap items-center gap-x-2.5 gap-y-0.5 mb-2">
+              <img
+                src={exp.logo}
+                alt=""
+                aria-hidden="true"
+                className="w-5 h-5 rounded-sm object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-200"
+              />
+              <h3 className="font-medium text-foreground group-hover:text-cyan-300 transition-colors duration-200">
+                {exp.position}
+              </h3>
+              <span className="text-border">·</span>
+              <span className="text-sm text-muted-foreground">{exp.company}</span>
+            </div>
+
+            {/* Description */}
+            <p className="text-sm leading-relaxed text-muted-foreground max-w-2xl">
+              {exp.description}
+            </p>
+          </div>
         ))}
       </div>
     </section>
