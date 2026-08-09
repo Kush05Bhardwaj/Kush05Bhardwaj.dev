@@ -17,7 +17,7 @@ const experiences = [
     id: "eozka",
     company: "eOzka",
     position: "Software Engineer",
-    logo: "/eozka.svg",
+    logo: "/eOzka.png",
     startDate: "2026-06-01",
     endDate: undefined as string | undefined,
     current: true,
