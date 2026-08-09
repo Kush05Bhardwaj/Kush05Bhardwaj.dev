@@ -19,7 +19,7 @@
 * { @apply border-border; }
 html { scroll-behavior: smooth; overflow-x: hidden; }
 body { @apply bg-background text-foreground; overflow-x: hidden; font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif; }
-/* ── Layered ambient background ─────────────────────────────────────── */
+/* ── Minimal ambient background ─────────────────────────────────────── */
 body::before {
   content: "";
   position: fixed;
@@ -27,44 +27,25 @@ body::before {
   pointer-events: none;
   z-index: -2;
   background-image:
-    /* ── grid ── */
-    linear-gradient(hsl(var(--border) / .17) 1px, transparent 1px),
-    linear-gradient(90deg, hsl(var(--border) / .20) 1px, transparent 1px),
-
-    /* ── Balanced Top Tier (Left & Right) ── */
-    radial-gradient(ellipse 50% 35% at 85% 12%,  rgb(0 229 255 / .055), transparent),
-    radial-gradient(ellipse 50% 35% at 15% 12%,  rgb(0 229 255 / .055), transparent),
-
-    /* ── Balanced Mid Tier (Left & Right) ── */
-    radial-gradient(ellipse 45% 32% at 88% 50%,  rgb(0 200 240 / .045), transparent),
-    radial-gradient(ellipse 45% 32% at 12% 50%,  rgb(0 200 240 / .045), transparent),
-
-    /* ── Balanced Bottom Tier (Left & Right) ── */
-    radial-gradient(ellipse 50% 35% at 85% 88%,  rgb(0 229 255 / .050), transparent),
-    radial-gradient(ellipse 50% 35% at 15% 88%,  rgb(0 229 255 / .050), transparent),
-
-    /* ── Central Soft Ambient Atmosphere ── */
-    radial-gradient(ellipse 60% 45% at 50% 50%,  rgb(0 190 235 / .030), transparent);
-
+    /* technical grid */
+    linear-gradient(hsl(var(--border) / .18) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--border) / .22) 1px, transparent 1px),
+    /* single subtle ambient top-center glow */
+    radial-gradient(circle at 50% 12%, rgb(0 229 255 / .05), transparent 45rem);
   background-size:
     48px 48px,
     48px 48px,
-    auto, auto,
-    auto, auto,
-    auto, auto,
     auto;
 }
 
-/* ── Vignette — even edge darkening on all sides ── */
+/* ── Edge Vignette ── */
 body::after {
   content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: -1;
-  background:
-    /* balanced vignette */
-    radial-gradient(ellipse 75% 65% at 50% 50%, transparent 40%, rgb(3 4 5 / .08) 65%, rgb(3 4 5 / .28) 100%);
+  background: radial-gradient(ellipse 80% 70% at 50% 40%, transparent 40%, rgb(3 4 5 / .08) 65%, rgb(3 4 5 / .28) 100%);
 }
 h1,h2,h3,h4,h5,h6 { font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif; letter-spacing: -.03em; }
 pre,code { font-family: var(--font-jetbrains-mono), monospace; }
