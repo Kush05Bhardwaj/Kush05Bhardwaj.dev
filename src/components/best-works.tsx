@@ -4,12 +4,14 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowUpRight, Github } from "lucide-react"
 import SectionHeader from "@/components/section-header"
-import { featuredProjects, techLabel } from "@/lib/projects-data"
+import { featuredProjects, otherProjects, techLabel } from "@/lib/projects-data"
 
 // Map each project to a concise editorial category string
 const projectCategory: Record<string, string> = {
   "1": "PYTHON · LLM · OPENCV · SQLITE",
   "2": "PYTHON · FASTAPI · ML · NEXT.JS",
+  "3": "PYTHON · LLM · AI · ML",
+  "4": "NEXT.JS · REACT · TAILWIND",
 }
 
 export default function BestWorks() {
@@ -118,6 +120,65 @@ export default function BestWorks() {
         >
           Explore all projects <ArrowUpRight className="link-arrow h-4 w-4" />
         </Link>
+      </div>
+
+      {/* More Work Section */}
+      <div className="mt-16">
+        <SectionHeader
+          number="03"
+          label="MORE WORK"
+          title="More Work"
+          description="Other projects and experiments."
+          aside={`${otherProjects.length} PROJECTS`}
+        />
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {otherProjects.map((project) => (
+            <article
+              key={project.id}
+              className="group rounded-lg border border-border/40 bg-card/50 p-5 hover:border-border/80 transition-colors"
+            >
+              <h3 className="text-lg font-semibold text-foreground group-hover:text-cyan-400 transition-colors">
+                {project.title}
+              </h3>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                {project.shortDescription}
+              </p>
+              <div className="mt-3 flex flex-wrap gap-1.5">
+                {project.technologies.slice(0, 4).map(tech => (
+                  <span
+                    key={tech}
+                    className="rounded-full bg-secondary/70 px-2 py-0.5 text-xs text-secondary-foreground"
+                  >
+                    {techLabel[tech] ?? tech}
+                  </span>
+                ))}
+              </div>
+              <div className="mt-4 flex flex-wrap gap-4 text-sm font-medium">
+                {project.githubUrl && (
+                  <Link
+                    className="inline-flex items-center gap-1.5 text-foreground hover:text-cyan-400 transition-colors"
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <Github className="h-3.5 w-3.5" /> Source <ArrowUpRight className="h-3.5 w-3.5" />
+                  </Link>
+                )}
+                {project.liveUrl && (
+                  <Link
+                    className="inline-flex items-center gap-1.5 text-cyan-300 hover:text-cyan-400 transition-colors"
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Live demo <ArrowUpRight className="h-3.5 w-3.5" />
+                  </Link>
+                )}
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   )
