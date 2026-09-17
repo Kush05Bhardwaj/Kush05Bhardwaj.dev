@@ -8,10 +8,8 @@ import { featuredProjects, techLabel } from "@/lib/projects-data"
 
 // Map each project to a concise editorial category string
 const projectCategory: Record<string, string> = {
-  "1": "AI · PYTHON · LLM · DESKTOP",
-  "2": "AI · SECURITY · PYTHON · ML",
-  "3": "AI · PYTHON · LLM · WEB",
-  "4": "WEB · NEXT.JS · MONGODB",
+  "1": "PYTHON · LLM · OPENCV · SQLITE",
+  "2": "PYTHON · FASTAPI · ML · NEXT.JS",
 }
 
 export default function BestWorks() {
