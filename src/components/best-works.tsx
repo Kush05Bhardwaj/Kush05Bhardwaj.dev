@@ -10,8 +10,8 @@ import { featuredProjects, otherProjects, techLabel } from "@/lib/projects-data"
 const projectCategory: Record<string, string> = {
   "1": "PYTHON · LLM · OPENCV · SQLITE",
   "2": "PYTHON · FASTAPI · ML · NEXT.JS",
-  "3": "PYTHON · LLM · AI · ML",
-  "4": "NEXT.JS · REACT · TAILWIND",
+  "3": "NEXT.JS · AI · COMPUTER VISION · UI/UX",
+  "4": "NEXT.JS · TYPESCRIPT · API INTEGRATION",
 }
 
 export default function BestWorks() {

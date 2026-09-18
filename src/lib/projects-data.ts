@@ -30,6 +30,11 @@ export const techLabel: Record<string, string> = {
   framer: "Framer Motion",
   recharts: "Recharts",
   spotify: "Spotify API",
+  cv: "Computer Vision",
+  uiux: "UI/UX",
+  mediapipe: "MediaPipe",
+  socketio: "Socket.io",
+  api: "API Integration",
 }
 
 export const featuredProjects: Project[] = [
@@ -52,19 +57,19 @@ export const featuredProjects: Project[] = [
   {
     id: "3",
     title: "Artistry",
-    shortDescription: "AI-powered interior design platform. Upload a room photo and an LLM-driven pipeline segments walls, detects objects, and renders AI-redesigned visuals.",
+    shortDescription: "AI-powered interior/home redesign platform.",
     images: ["/Artistry.jpg"],
     liveUrl: "https://artistry-six.vercel.app",
     githubUrl: "https://github.com/Kush05Bhardwaj/Artistry-MVP",
-    technologies: ["python", "LLM", "AI", "ml"],
+    technologies: ["nextjs", "AI", "cv", "uiux"],
   },
   {
     id: "4",
-    title: "ECL Parcel",
-    shortDescription: "Logistics and parcel tracking website offering services like shipment tracking, contact forms, and information about various shipping methods.",
+    title: "ECL",
+    shortDescription: "A web application built around parcel logistics and shipment tracking workflows.",
     images: ["/ecl.png"],
     liveUrl: "https://www.eclparcel.in",
-    technologies: ["nextjs", "react", "tailwindcss", "shadcn", "lucide"],
+    technologies: ["nextjs", "ts", "api"],
   },
 ]
 
