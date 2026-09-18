@@ -43,7 +43,7 @@ export default function About() {
     "cd projects":  "📁 Projects Directory:\n├── alisa/             (Python, LLM, FastAPI, SQLite)\n├── airis-security/   (Python, Next.js, ML)\n├── artistry/          (Python, React, LLM)\n└── portfolio/         (Next.js, TypeScript, MongoDB)\n\n🔗 github.com/Kush05Bhardwaj?tab=repositories",
     "cat experience":"🏢 Work Experience:\n\n[Open Source Community]\n├── Role: Contributor\n└── Period: Dec 2025 – Present\n\n[ELite Coders WoC '26]\n├── Role: Contributor\n└── Period: Jan – Feb 2026\n\n[Cognifyz Technologies]\n├── Role: Web Developer Intern\n└── Period: May – Jun 2025\n\n[Fiverr]\n├── Role: Freelancer\n└── Period: Apr 2024 – Present",
     "cat contact":  "📬 Contact Information:\n\nEmail:    kush2012bhardwaj@gmail.com\nPhone:    +91 7428690322\nLinkedIn: linkedin.com/in/kush2012bhardwaj\nGitHub:   github.com/Kush05Bhardwaj",
-    "cat about":    "👨‍💻 About Me:\n\nB.Tech CS & Engineering student @ K.R. Mangalam University\nFocused on AI/ML, software engineering, and intelligent systems.\n\nInterests:\n• AI / ML · LLMs · AI Assistants\n• Software Engineering\n• Linux · Open Source",
+    "cat about":    "👨‍💻 About Me:\n\nB.Tech CS & Engineering student\nFocused on AI/ML, software engineering, and intelligent systems.\n\nInterests:\n• AI / ML · LLMs · AI Assistants\n• Systems · Linux · Open Source",
     "help":         "Available Commands:\n\n📌 Information:\n  whoami          - Display user info\n  cat about       - About me\n  cat contact     - Contact info\n\n📁 Navigation:\n  ls skills       - List skills\n  cat projects    - View projects\n  cd projects     - Browse project directory\n  cat experience  - Work experience\n\n💡 Utility:\n  clear           - Clear terminal\n  help            - This message\n\n💬 Natural language also works!"
   }
 
@@ -111,7 +111,7 @@ export default function About() {
 
   return (
     <section id="about" className="py-10">
-      <SectionHeader number="01" label="ABOUT" title="About Me" description="AI/ML · Software Engineering · LLMs · Building practical systems" aside="INDIA / 2026" />
+      <SectionHeader number="01" label="ABOUT" title="About Me" description="AI/ML · LLMs · Software Engineering · Systems" aside="INDIA / 2026" />
 
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
         {/* Bio column */}
@@ -119,15 +119,15 @@ export default function About() {
           <div className="about-copy pr-0 lg:pr-6 h-full">
             <h3 className="text-base font-semibold mb-3 text-foreground">Who am I?</h3>
             <p className="text-muted-foreground mb-3 leading-relaxed text-sm sm:text-base">
-              I&apos;m a B.Tech Computer Science & Engineering student at K.R. Mangalam University, focused on AI/ML, software engineering, and understanding how intelligent systems work under the hood.
+              I&apos;m a B.Tech Computer Science & Engineering student focused on AI/ML, software engineering, and understanding how intelligent systems work under the hood.
             </p>
             <p className="text-muted-foreground mb-4 leading-relaxed text-sm sm:text-base">
-              I&apos;ve worked on web applications, AI-powered tools, developer utilities, and open-source projects, including freelance work and an internship at Cognifyz Technologies. I&apos;m currently exploring Machine Learning, Deep Learning, LLMs, Linux, and scalable software systems.
+              I build practical applications across AI, developer tooling, web systems, and security, while exploring machine learning, deep learning, LLMs, Linux, and systems engineering.
             </p>
             <div className="mt-5 pt-5 border-t border-border/40">
               <p className="font-mono text-[.65rem] tracking-[.14em] text-muted-foreground mb-2">INTERESTS</p>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                AI / ML · LLMs · AI Assistants · Software Engineering · Linux · Open Source
+                AI / ML · LLMs · AI Assistants · Systems · Linux · Open Source
               </p>
             </div>
           </div>
