@@ -21,7 +21,7 @@ export default function Hero() {
   const [loopNum, setLoopNum] = useState(0)
   const { ref: leftRef, isVisible: leftVisible } = useScrollReveal()
   const { ref: rightRef, isVisible: rightVisible } = useScrollReveal()
-  const roles = ["AI/ML Engineer", "Software Engineer", "MERN Stack Developer", "AI/ML Enthusiast"]
+  const roles = ["AI/ML Engineer", "Software Engineer", "Systems Builder", "AI Experimenter"]
 
   useEffect(() => {
     const full = roles[loopNum % roles.length]
@@ -52,7 +52,7 @@ export default function Hero() {
     <section id="home">
       {/* Technical metadata strip */}
       <p className="mb-6 font-mono text-[.65rem] font-medium tracking-[.18em] text-muted-foreground select-none">
-        AI/ML · SOFTWARE ENGINEERING · INDIA · OPEN TO AI/ML · BACKEND · FULL-STACK
+        AI/ML · LLMs · SOFTWARE ENGINEERING · SYSTEMS · INDIA
       </p>
 
       {/* Hero body: name/content left, portrait right */}
@@ -65,7 +65,7 @@ export default function Hero() {
             {displayText}<span className="animate-cursor">_</span>
           </div>
           <p className="mt-4 max-w-xl text-base leading-7 text-muted-foreground">
-            B.Tech Computer Science student focused on AI/ML, software engineering, and building practical applications.
+            I build intelligent systems, experiment with AI, and occasionally make the computer do things it wasn&apos;t supposed to.
           </p>
           <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-border bg-card/70 px-3 py-1.5 text-xs text-muted-foreground">
             <span className="h-2 w-2 rounded-full bg-emerald-400"/>
