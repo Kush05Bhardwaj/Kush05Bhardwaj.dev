@@ -55,6 +55,7 @@ export default function BestWorks() {
                 {/* Project identifier */}
                 <p className="font-mono text-[.62rem] tracking-[.16em] text-muted-foreground mb-1">
                   {isFirst ? "FEATURED — " : ""}PROJECT {String(index + 1).padStart(2, "0")}
+                  {project.year && ` — ${project.year}`}
                 </p>
 
                 <h3 className="mt-2 text-2xl font-semibold text-foreground sm:text-3xl">

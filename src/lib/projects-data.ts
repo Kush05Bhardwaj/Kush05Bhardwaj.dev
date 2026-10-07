@@ -6,6 +6,7 @@ export type Project = {
   liveUrl?: string
   githubUrl?: string
   technologies: string[]
+  year?: string
 }
 
 export const techLabel: Record<string, string> = {
@@ -42,34 +43,38 @@ export const featuredProjects: Project[] = [
     id: "1",
     title: "Alisa — AI Desktop Companion",
     shortDescription: "A local AI companion combining LLMs, voice, vision, memory and safe desktop automation.",
-    images: ["/Kush05BhardwajAlisa.png"],
+    images: ["/projects/alisa.png"],
     githubUrl: "https://github.com/Kush05Bhardwaj/Nexus-Alisa-AI-Assistant",
     technologies: ["python", "LLM", "opencv", "sqlite"],
+    year: "2026",
   },
   {
     id: "2",
     title: "AIris Security",
     shortDescription: "A full-stack security platform combining automated vulnerability scanning with machine-learning based risk assessment.",
-    images: [],
+    images: ["/projects/airis.png"],
     githubUrl: "https://github.com/Kush05Bhardwaj/AIris-Security_AI-Powered-Vulnerability-Scanner",
     technologies: ["python", "fastapi", "ml", "nextjs"],
+    year: "2026",
   },
   {
     id: "3",
     title: "Artistry",
     shortDescription: "AI-powered interior/home redesign platform.",
-    images: ["/Artistry.jpg"],
+    images: ["/projects/artistry.png"],
     liveUrl: "https://artistry-six.vercel.app",
     githubUrl: "https://github.com/Kush05Bhardwaj/Artistry-MVP",
     technologies: ["nextjs", "AI", "cv", "uiux"],
+    year: "2025",
   },
   {
     id: "4",
     title: "ECL",
     shortDescription: "A web application built around parcel logistics and shipment tracking workflows.",
-    images: ["/ecl.png"],
+    images: ["/projects/ecl.png"],
     liveUrl: "https://www.eclparcel.in",
     technologies: ["nextjs", "ts", "api"],
+    year: "2025",
   },
 ]
 

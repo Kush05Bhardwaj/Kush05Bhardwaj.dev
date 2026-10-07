@@ -11,8 +11,8 @@ const metrics = [
   { value: "10+",  label: "PROJECTS" },
   { value: "2+",   label: "YEARS BUILDING" },
   { value: "3+",   label: "ENGAGEMENTS" },
-  { value: "10+",  label: "TECHNOLOGIES" },
-  { value: "50+",  label: "DSA SOLVED" },
+  { value: "AI/ML", label: "FOCUS" },
+  { value: "OPEN SOURCE", label: "CONTRIBUTIONS" },
 ]
 
 export default function Hero() {
